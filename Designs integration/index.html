@@ -25,7 +25,6 @@
     <link href="index.js" rel="text/script" />
   </head>
   <body>
-
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
       <symbol id="bootstrap" viewBox="0 0 118 94">
         <title>Bootstrap</title>
@@ -56,14 +55,13 @@
         />
       </symbol>
       <symbol id="arrowtop" viewbox="0 0 48 48">
-        <path 
+        <path
           d="M21.95 40.5V15.45L10.5 26.95l-3-3L24 7.5l16.55 16.45-2.95 3-11.5-11.5V40.5Z"
         />
       </symbol>
     </svg>
 
     <main>
-      
       <header class="py-2 bg-light border-bottom">
         <div class="container d-flex flex-wrap justify-content-center">
           <a
@@ -78,31 +76,57 @@
         </div>
       </header>
 
-
-      <div role="alert" aria-live="assertive" aria-atomic="true" class="toast fade show" data-bs-autohide="false">
+      <div
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        class="toast fade show"
+        data-bs-autohide="false"
+      >
         <div class="toast-header">
-          <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
-      
+          <svg
+            class="bd-placeholder-img rounded me-2"
+            width="20"
+            height="20"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <rect width="100%" height="100%" fill="#007aff"></rect>
+          </svg>
+
           <strong class="me-auto">Bootstrap</strong>
           <small>11 mins ago</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
         </div>
-        <div class="toast-body">
-          Hello, world! This is a toast message.
-        </div>
+        <div class="toast-body">Hello, world! This is a toast message.</div>
       </div>
 
-
-      <div class="toast align-items-center text-bg-primary border-0 " role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+      <div
+        class="toast align-items-center text-bg-primary border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-bs-autohide="false"
+      >
         <div class="d-flex">
           <div class="toast-body">
             Hello, world2222! This is a toast message.
           </div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
         </div>
       </div>
-
-
 
       <!--  -->
       <nav class="py-3 mb-8 border-bottom">
@@ -174,41 +198,149 @@
           preserveAspectRatio="xMidYMid slice"
           focusable="false"
         >
-        <path
-          d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
-        />
+          <path
+            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+          />
           <title></title>
           <rect width="100%" height="100%" fill="#868e96">hello</rect>
-          <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Welcome to K3 HRMS </text>
+          <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+            Welcome to K3 HRMS
+          </text>
         </svg>
       </div>
 
-      <div>
-        <div class="bg-dark bg-opacity-25 py-5">
-          <div class="container">
-            <div class="bg-white rounded-4 p-4">
-              <div class="row text-center">
-                <div class="col-sm-auto">
-                  <h4 class="text-success m-0 p-0">Status</h4>
+      <div class="bg-dark bg-opacity-25 py-5">
+        <div class="container">
+          <div class="bg-white rounded-4 p-4 mb-3">
+            <div class="row text-center">
+              <div class="col-sm-auto">
+                <h4 class="text-success m-0 p-0">Status</h4>
+              </div>
+              <div class="col-sm">
+                <p class="m-0">
+                  <span class="h4 align-middle me-3">0</span> Participants
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="m-0">
+                  <span class="h4 align-middle me-3">0</span> Coaches / Managers
+                </p>
+              </div>
+              <div class="col-sm">
+                <p class="m-0">
+                  <span class="h4 align-middle me-3">54</span> Registred Sports
+                  Events
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-8 d-flex align-items-stretch">
+              <div class="bg-white rounded-4 p-5 flex-fill">
+                <div class="row mb-3">
+                  <div class="col">
+                    <h4 class="text-success mb-3">University Detail</h4>
+                  </div>
+                  <div class="col-auto text-end">
+                    <button
+                      type="button"
+                      class="btn btn-secondary btn-sm"
+                      title="Will be active soon"
+                    >
+                      Edit
+                    </button>
+                  </div>
                 </div>
-                <div class="col-sm">
-                  <p class="m-0">
-                    <span class="h4 align-middle me-3">0</span> Remaining Tasks
-                  </p>
-                </div>
-                <div class="col-sm">
-                  <p class="m-0">
-                    <span class="h4 align-middle me-3">69</span> Pending Request
-                  </p>
-                </div>
-                <div class="col-sm">
-                  <p class="m-0">
-                    <span class="h4 align-middle me-3">69</span> Total benefits
-                  </p>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="ratio ratio-1x1" title="Will be active soon">
+                      <div
+                        class="d-flex align-items-center justify-content-center border text-center"
+                      >
+                        <div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div>
+                      <small class="text-muted">University</small>
+                      <p class="lead mb-3">KIIT - Deemed to be University</p>
+                      <small class="text-muted">Contact / Address</small>
+                      <p class="mb-3">
+                        patia, Bhubaneswar, Odisha<br />Ph. 7978988100, Email:
+                        webmasterkiit@kiit.ac.in
+                      </p>
+                      <small class="text-muted">Sports Director</small>
+                      <p class="mb-0">
+                        Dr. Gaganendu Dash<br /><small
+                          ><span class="me-3">Email: sports.kiit@gmail.com</span
+                          ><span class="me-3">Mobile: 9437020244</span></small
+                        >
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            
+            <div class="col-sm-4 d-flex align-items-stretch">
+              <div class="bg-white rounded-4 p-5 flex-fill">
+                <h4 class="text-success mb-3">Travel Detail</h4>
+                <div class="">
+                  <p><strong>Total team members: 0</strong></p>
+                  <form>
+                    <div class="mb-3">
+                      <label class="form-label">Mode of Travel</label>
+                      <div></div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          id="trainCheckbox"
+                          name="travelMode"
+                          required=""
+                          value="train"
+                        /><label class="form-check-label" for="trainCheckbox"
+                          >Train</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          id="flightCheckbox"
+                          name="travelMode"
+                          value="flight"
+                        /><label class="form-check-label" for="flightCheckbox"
+                          >Flight</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          id="busCheckbox"
+                          name="travelMode"
+                          value="bus"
+                        /><label class="form-check-label" for="busCheckbox"
+                          >Bus</label
+                        >
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="arrivaltime" class="form-label"
+                        >Date &amp; Time of Arrival</label
+                      ><input
+                        type="datetime-local"
+                        class="form-control"
+                        id="arrivaltime"
+                        required=""
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -225,73 +357,78 @@
             <div class="col-sm-auto">
               <a href="form.html" class="btn btn-success mx-2"
                 >Add Candidate Details</a
-                > 
+              >
             </div>
           </div>
-          
+
           <div class="row">
-            
             <div class="col-sm">
-              <label for="admSelect" class="form-label" onkeyup="myFunction()">Select Department</label
+              <label for="admSelect" class="form-label" onkeyup="myFunction()"
+                >Select Department</label
               ><select
                 class="form-select"
                 aria-label="Select Department"
                 id="admSelect"
               >
-              
                 <option value="">All</option>
                 <option value="@mdo">@mdo</option>
                 <option value="@fat">@fat</option>
                 <option value="@twitter">@twitter</option>
               </select>
             </div>
-            
-          
-          <div class="col-sm">
-            <div class="text-sm-end">
-              <label for="searchInput" class="form-label">Search</label>
+
+            <div class="col-sm">
+              <div class="text-sm-end">
+                <label for="searchInput" class="form-label">Search</label>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="searchInput"
+                placeholder="Search..."
+              />
             </div>
-            <input type="text" class="form-control" id="searchInput" placeholder="Search...">
           </div>
-        </div>
           <div class="row">
             <div class="col-sm">
               <div class="table-responsive-sm">
-              <table class="table table-hover table-responsive-sm"  id="admsearch">
-                <thead>
-                  <tr>
-                    <th scope="col">Adm. Ref.</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Department</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>hello</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
+                <table
+                  class="table table-hover table-responsive-sm"
+                  id="admsearch"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col">Adm. Ref.</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Department</th>
+                      <th scope="col">City</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-group-divider">
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>hello</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="2">Larry the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            </div>
-            
           </div>
         </div>
       </div>
@@ -308,86 +445,96 @@
             <div class="col-sm-auto">
               <a href="form.html" class="btn btn-success mx-2"
                 >Add Candidate Details</a
-                > 
+              >
             </div>
           </div>
-          
+
           <div class="row">
-            
             <div class="col-sm">
-              <label for="admSelect" class="form-label" onkeyup="myFunction()">Select Department</label
+              <label for="admSelect" class="form-label" onkeyup="myFunction()"
+                >Select Department</label
               ><select
                 class="form-select"
                 aria-label="Select Department"
                 id="admSelect"
               >
-              
                 <option value="">All</option>
                 <option value="@mdo">@mdo</option>
                 <option value="@fat">@fat</option>
                 <option value="@twitter">@twitter</option>
               </select>
             </div>
-            
-          
-          <div class="col-sm">
-            <div class="text-sm-end">
-              <label for="searchInput" class="form-label">Search</label>
+
+            <div class="col-sm">
+              <div class="text-sm-end">
+                <label for="searchInput" class="form-label">Search</label>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="searchInput"
+                placeholder="Search..."
+              />
             </div>
-            <input type="text" class="form-control" id="searchInput" placeholder="Search...">
           </div>
-        </div>
           <div class="row">
             <div class="col-sm">
               <div class="table-responsive-sm">
-              <table class="table table-hover table-responsive-sm"  id="admsearch">
-                <thead>
-                  <tr>
-                    <th scope="col">Adm. Ref.</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Department</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>hello</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
+                <table
+                  class="table table-hover table-responsive-sm"
+                  id="admsearch"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col">Adm. Ref.</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Department</th>
+                      <th scope="col">City</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-group-divider">
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>hello</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="2">Larry the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            </div>
-            
           </div>
         </div>
       </div>
-
-
 
       <div class="container">
         <footer
           class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
         >
           <div class="col-md-4 d-flex align-items-center">
-            <span class="mb-3 mb-md-0 text-muted" 
-              ><p><a style="text-decoration: none; color: gray;" href="https://unknownclub.me" target="_blank">Made with 🧡</a></p></span
+            <span class="mb-3 mb-md-0 text-muted"
+              ><p>
+                <a
+                  style="text-decoration: none; color: gray"
+                  href="https://unknownclub.me"
+                  target="_blank"
+                  >Made with 🧡</a
+                >
+              </p></span
             >
           </div>
 
@@ -395,7 +542,8 @@
             <li class="ms-3">
               <a class="text-muted" href="https://twitter.com/KIITUniversity"
                 ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#twitter" /></svg>
+                  <use xlink:href="#twitter" />
+                </svg>
               </a>
             </li>
             <li class="ms-3">
@@ -403,7 +551,8 @@
                 class="text-muted"
                 href="https://www.instagram.com/KIITUniversity/"
                 ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#instagram" /></svg>
+                  <use xlink:href="#instagram" />
+                </svg>
               </a>
             </li>
             <li class="ms-3">
@@ -411,7 +560,8 @@
                 class="text-muted"
                 href="https://www.facebook.com/KIITUniversity"
                 ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#facebook" /></svg>
+                  <use xlink:href="#facebook" />
+                </svg>
               </a>
             </li>
             <li class="ms-3">
@@ -419,39 +569,46 @@
                 class="text-muted"
                 href="https://www.facebook.com/KIITUniversity"
                 ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#youtube" /></svg>
+                  <use xlink:href="#youtube" />
+                </svg>
               </a>
             </li>
           </ul>
         </footer>
       </div>
 
-      <button onclick="topFunction()" id="myBtn" title="Go to top"><svg class="bi" width="24" height="24">
-        <use xlink:href="#arrowtop" /></svg><br> Top</button>
+      <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <svg class="bi" width="24" height="24">
+          <use xlink:href="#arrowtop" /></svg
+        ><br />
+        Top
+      </button>
 
       <script>
         let mybutton = document.getElementById("myBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction();
+        };
 
-function scrollFunction() {
-  if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
+        function scrollFunction() {
+          if (
+            document.body.scrollTop > 40 ||
+            document.documentElement.scrollTop > 40
+          ) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
       </script>
-
-      
-      
     </main>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
