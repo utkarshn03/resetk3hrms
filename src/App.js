@@ -11,8 +11,8 @@ import KiitData from './components/kiittable';
 import NavBar from "./components/NavBar";
 import EmployeeDet from "./components/employeedet";
 import Footer from "./components/Footer";
-// import Hospitalityform from './pages/hospitality';
-// import Templetrustform from './pages/templeform';
+import Hospitalityform from './components/Hospitalityform';
+import Templeform from './components/Templeform';
 //import Welcome from './components/Welcome';
 
 function App() {
@@ -46,6 +46,8 @@ function App() {
 
       <Kiitform />
       <KiitData />
+      <Templeform />
+      <Hospitalityform />
       <Footer />
     </>
     // <Router>

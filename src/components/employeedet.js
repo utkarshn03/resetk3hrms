@@ -7,8 +7,8 @@ const employeedet = () => {
     <div className="container">
       <div className="bg-white rounded-4 p-4 mb-3">
         <div className="row">
-          <div className="col-sm-8 d-flex align-items-stretch">
-            <div className="bg-white rounded-4 p-5 flex-fill">
+          <div className="col d-flex align-items-stretch">
+            <div className="bg-white rounded-7 p-5 flex-fill">
               <div className="row mb-3">
                 <div className="col">
                   <h4 className="text-success mb-3">Employee Detail</h4>
@@ -19,12 +19,12 @@ const employeedet = () => {
                     className="btn btn-secondary btn-sm"
                     title="Will be active soon"
                   >
-                    Edit
+                    Edit Details
                   </button>
                 </div>
               </div>
               <div className="row">
-                <div className="col-sm-4">
+                <div className="col-sm-3">
                   <div className="ratio ratio-1x1" title="Will be active soon">
                     <div className="d-flex align-items-center justify-content-center border text-center">
                       <div></div>
@@ -34,26 +34,21 @@ const employeedet = () => {
                 <div className="col-sm">
                   <div>
                     <small className="text-muted">Employee ID: </small>
-                    <p className="lead mb-3">Name: </p>
-                    <small className="text-muted">Contact / Address</small>
-                    <p className="mb-3">
-                      patia, Bhubaneswar, Odisha
-                      <br />
-                      Ph. 7978988100, Email: webmasterkiit@kiit.ac.in
-                    </p>
-                    <small className="text-muted">Sports Director</small>
-                    <p className="mb-0">
-                      Dr. Gaganendu Dash
+                    <p className="lead mb-2">Name: </p>
+                    <p className="lead mb-2">Department: </p>
+                    <p>
                       <br />
                       <small>
                         <span className="me-3">
                           Email: sports.kiit@gmail.com
                         </span>
+                        <br />
                         <span className="me-3">Mobile: 9437020244</span>
                       </small>
                     </p>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>

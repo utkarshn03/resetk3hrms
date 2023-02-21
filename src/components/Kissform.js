@@ -24,7 +24,7 @@ const kiitform = () => {
   return (
     <div>
       <div className="container">
-        <h4 className="text-success mb-0">Candidate Registration</h4>
+        <h4 className="text-success mb-0"></h4>
         <p className="mb-3">
           <small className="text-muted">Add Candidate</small>
         </p>

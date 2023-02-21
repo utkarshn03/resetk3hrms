@@ -24,9 +24,9 @@ const kiitform = () => {
   return (
     <div>
       <div className="container">
-        <h4 className="text-success mb-0">Candidate Registration</h4>
+        <h4 className="text-success mb-0">Patient Registration</h4>
         <p className="mb-3">
-          <small className="text-muted">Add Candidate</small>
+          <small className="text-muted">Add Patient</small>
         </p>
         <form>
           <div className="mt-3 mb-3">
@@ -35,11 +35,11 @@ const kiitform = () => {
               <div className="row">
                 <div className="col-sm">
                   <div className="mb-3">
-                    <label for="admreffloatingInput">Admission Ref. No.</label>
+                    <label for="admreffloatingInput">Uhid No.</label>
                     <input
                       type="text"
                       className="form-control"
-                      id="admreffloatingInput"
+                      id="uhidfloatingInput"
                       required
                     />
                   </div>
@@ -241,12 +241,10 @@ const kiitform = () => {
           {/* <!----><!----><!----> */}
           <div className="mt-3 mb-3">
             <div className="border rounded-4 p-4 text-end">
-            <button type="button" className="btn btn-danger btn-lg">
-                Cancel
-              </button>
-              <button type="disabled" className="btn btn-success btn-lg">
+            
+              {/* <button type="disabled" className="btn btn-success btn-lg">
                 Add
-              </button>
+              </button> */}
             </div>
           </div>
         </form>

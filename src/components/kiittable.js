@@ -1,18 +1,61 @@
-import React from "react";
-// import axios from "axios";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+const { ipapi } = require('../config.json');
+
 // import kiittable from "";
 
 const Kiittable = () => {
-//   const [countries, setCountries] = useState([]);
 
-//   const getKiitdata = async () => {
-//     try {
-//       const response = await axios.get("https://restcountries.com/v2/all");
-//     } catch (error) {}
-//   };
+
+  const [dataTable, setDataTable] = useState([]);
+  console.log(dataTable);
+
+  const Tablerow = ({ data, column }) => {
+    return (        
+        <tbody>
+          {data.map((item, index) => (
+            <TableRow item={item} column={column} />
+          ))}
+        </tbody>
+    );
+  };
+
+  const TableHeadItem = ({ item }) => <th>{item.heading}</th>;
+  const TableRow = ({ item, column }) => (
+    <tr>
+      {column.map((columnItem, index) => {
+        if (columnItem.value.includes(".")) {
+          const itemSplit = columnItem.value.split("."); //['address', 'city']
+          return <td>{item[itemSplit[0]][itemSplit[1]]}</td>;
+        }
+
+        return <td>{item[`${columnItem.value}`]}</td>;
+      })}
+    </tr>
+  );
+
+  //axios 
+
+  useEffect(() => {
+    axios(ipapi)
+      .then((res) => setDataTable(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  //table columns
+
+  const column = [
+    { heading: "Admission Ref.", value: "adm_ref_no" },
+    { heading: "Name", value: "student_name" },
+    { heading: "City", value: "city" },
+    { heading: "Phone", value: "ph_no" },
+    { heading: "Department", value: "student_det" },
+    // { heading: 'Document', value: 'proof_docu.links' },
+  ];
 
   return (
-    <>
+    
+    <div class="bg-secondary bg-opacity-10 py-5">
       <div className="py-5">
         <div className="container">
           <div className="row">
@@ -33,7 +76,11 @@ const Kiittable = () => {
 
           <div className="row">
             <div className="col-sm">
-              <label for="admSelect" className="form-label" onkeyup="myFunction()">
+              <label
+                for="admSelect"
+                className="form-label"
+                onkeyup="myFunction()"
+              >
                 Select Department
               </label>
               <select
@@ -42,9 +89,9 @@ const Kiittable = () => {
                 id="admSelect"
               >
                 <option value="">All</option>
-                <option value="@mdo">@mdo</option>
-                <option value="@fat">@fat</option>
-                <option value="@twitter">@twitter</option>
+                <option value="Engineering">Engineering</option>
+                <option value="ITI">ITI</option>
+                <option value="Polytechnic">Polytechnic</option>
               </select>
             </div>
 
@@ -71,33 +118,14 @@ const Kiittable = () => {
                 >
                   <thead>
                     <tr>
-                      <th scope="col">Adm. Ref.</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Department</th>
-                      <th scope="col">City</th>
-                      <th scope="col">Action</th>
+                      {column.map((item, index) => (
+                        <TableHeadItem item={item} />
+                      ))}
                     </tr>
                   </thead>
                   <tbody className="table-group-divider">
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>hello</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td colspan="2">Larry the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                    
+                  <Tablerow data={dataTable} column={column}/>
                   </tbody>
                 </table>
               </div>
@@ -105,8 +133,11 @@ const Kiittable = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
-}
+};
+
+
+
 
 export default Kiittable;

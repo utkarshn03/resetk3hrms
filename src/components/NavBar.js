@@ -130,7 +130,7 @@ function NavBar() {
           Social Media
         </Link>
       </div> */}
-      <button className="kiit-btn">logout</button>
+      {/* <button className="kiit-btn">logout</button> */}
     </div>
   );
 }
