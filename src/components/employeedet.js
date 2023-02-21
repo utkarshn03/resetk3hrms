@@ -40,10 +40,10 @@ const employeedet = () => {
                       <br />
                       <small>
                         <span className="me-3">
-                          Email: sports.kiit@gmail.com
+                          Email: 
                         </span>
                         <br />
-                        <span className="me-3">Mobile: 9437020244</span>
+                        <span className="me-3">Mobile: </span>
                       </small>
                     </p>
                   </div>

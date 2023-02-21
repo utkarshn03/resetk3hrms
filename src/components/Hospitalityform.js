@@ -85,9 +85,12 @@ const hospitalityform = () => {
           {/* <!----><!----><!----> */}
           <div className="mt-3 mb-3">
             <div className="border rounded-4 p-4 text-end">
-              <button type="disabled" className="btn btn-primary btn-lg">
+                <button type="button" className="btn btn-danger btn">
+                Cancel
+                </button>
+                <button type="disabled" className="btn btn-success btn">
                 Add
-              </button>
+                </button>
             </div>
           </div>
         </form>

@@ -35,9 +35,10 @@ const Kiittable = () => {
   );
 
   //axios 
+  const apikiit = ipapi+"/getall";
 
   useEffect(() => {
-    axios(ipapi)
+    axios(apikiit)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
   }, []);
