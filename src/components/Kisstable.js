@@ -77,7 +77,7 @@ const Kisstable = () => {
               </p>
             </div>
             <div className="col-sm-auto">
-              <a href="form.html" className="btn btn-success mx-2">
+              <a href="/k3/kiss/form" className="btn btn-success mx-2">
                 Add Candidate Details
               </a>
             </div>

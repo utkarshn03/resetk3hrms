@@ -2,6 +2,8 @@ import React, { useState } from "react";
 // import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import "./App.css";
 //import Header from './components/Header';
+import { BrowserRouter, Route,Routes } from "react-router-dom";
+import Kiit from "./pages/Kiit";
 import Kissform from './components/Kissform';
 import Kiitform from "./components/Kiitform";
 import KiitData from './components/Kiittable';
@@ -17,6 +19,8 @@ import Kimstable from "./components/Kimstable";
 import Kisstable from "./components/Kisstable";
 import Templetable from "./components/Templetable";
 import Hospitalitytable from "./components/Hospitalitytable";
+import WelcomePage from "./pages/WelcomePage";
+import Entry from "./pages/Entry";
 //import Welcome from './components/Welcome';
 
 
@@ -36,25 +40,32 @@ function App() {
     }, 1500 );
   }
 
+  const [user,setUser]= useState(null)
 
   return (
     <>
-      <NavBar title="header" />
-      <Welcomecard/>
-      <Employeedet />
-      <br />
-      <br />
-      <Kissform />
-      <Kisstable />
-      <Kiitform />
-      <KiitData />
-      <Kimsform />
-      <Kimstable />
-      <Templeform />
-      <Templetable />
-      <Hospitalityform />
-      <Hospitalitytable />
-      <Footer />
+      
+      <BrowserRouter>
+       <Routes>
+       <Route path='/' element={<Entry setUser={setUser}/>}/>
+       <Route path="/k3" element={<NavBar title="header"/>}/>
+       <Route path="/k3/home" element={<div><NavBar/><WelcomePage/></div>}/>
+       <Route path="/k3/kiit" element={<div><NavBar/><Kiit/></div>}/>
+       <Route path="/k3/kiit/form" element={<div><NavBar/><Kiitform/></div>}/>
+       <Route path="/k3/kims" element={<div><NavBar/><Kimstable/></div>}/>
+       <Route path="/k3/kims/form" element={<div><NavBar/><Kimsform/></div>}/>
+       <Route path="/k3/kiss" element={<div><NavBar/><Kisstable/></div>}/>
+       <Route path="/k3/kiss/form" element={<div><NavBar/><Kissform/></div>}/>
+       <Route path="/k3/hospitality" element={<div><NavBar/><Hospitalitytable/></div>}/>
+       <Route path="/k3/hospitality/form" element={<div><NavBar/><Kissform/></div>}/>
+       <Route path="/k3/temple" element={<div><NavBar/><Templetable/></div>}/>
+       <Route path="/k3/temple/form" element={<div><NavBar/><Kissform/></div>}/>
+       <Route path="/k3/socials" element={<div><NavBar/><WelcomePage/></div>}/>
+      
+       
+       </Routes>
+       
+      </BrowserRouter>
     </>
     // <Router>
     //   <Routes>
@@ -89,3 +100,21 @@ function App() {
 }
 
 export default App;
+
+
+
+// <NavBar title="header" />
+//       <WelcomePage/>
+//       <br />
+//       <br />
+//       <Kissform />
+//       <Kisstable />
+//       <Kiitform />
+//       <KiitData />
+//       <Kimsform />
+//       <Kimstable />
+//       <Templeform />
+//       <Templetable />
+//       <Hospitalityform />
+//       <Hospitalitytable />
+//       <Footer />
