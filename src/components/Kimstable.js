@@ -4,7 +4,7 @@ const { ipapi } = require("../config.json");
 
 // import kiittable from "";
 
-const Kiittable = () => {
+const Kimstable = () => {
   const [dataTable, setDataTable] = useState([]);
   console.log(dataTable);
 
@@ -44,10 +44,10 @@ const Kiittable = () => {
   );
 
   //axios
-  const apikiittable = ipapi+"/api/kiit/getdata";
+  const apikimstable = ipapi+"/api/kims/getdata";
 
   useEffect(() => {
-    axios(apikiittable)
+    axios(apikimstable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -55,7 +55,7 @@ const Kiittable = () => {
   //table columns
 
   const column = [
-    { heading: "Admission Ref.", value: "adm_ref_no" },
+    { heading: "Uhid no.", value: "adm_ref_no" },
     { heading: "Name", value: "student_name" },
     { heading: "City", value: "city" },
     { heading: "Phone", value: "student_ph" },
@@ -78,7 +78,7 @@ const Kiittable = () => {
             </div>
             <div className="col-sm-auto">
               <a href="form.html" className="btn btn-success mx-2">
-                Add Candidate Details
+                Add Patient Details
               </a>
             </div>
           </div>
@@ -90,7 +90,7 @@ const Kiittable = () => {
                 className="form-label"
                 onkeyup="myFunction()"
               >
-                Select Department
+                Select Payement Type
               </label>
               <select
                 className="form-select"
@@ -98,8 +98,8 @@ const Kiittable = () => {
                 id="admSelect"
               >
                 <option value="">All</option>
-                <option value="Engineering">Engineering</option>
-                <option value="ITI">ITI</option>
+                <option value="Self">Self</option>
+                <option value="">ITI</option>
                 <option value="Polytechnic">Polytechnic</option>
               </select>
             </div>
@@ -131,4 +131,4 @@ const Kiittable = () => {
   );
 };
 
-export default Kiittable;
+export default Kimstable;

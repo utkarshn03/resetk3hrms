@@ -7,6 +7,7 @@ import React, {useState} from "react";
 
 // import Container from 'react-bootstrap/Container';
 import "bootstrap/dist/css/bootstrap.css";
+const ipapi = require('../config.json');
 
 
 const options = [
@@ -17,6 +18,54 @@ const options = [
   ];
 
 const Kissform = () => {
+
+    // const [dataTable, setDataTable] = useState([]);
+    // console.log(dataTable);
+  
+    // const Tablerow = ({ data, column }) => {
+    //   return (        
+    //       <tbody>
+    //         {data.map((item, index) => (
+    //           <TableRow item={item} column={column} />
+    //         ))}
+    //       </tbody>
+    //   );
+    // };
+  
+    // const TableHeadItem = ({ item }) => <th>{item.heading}</th>;
+    // const TableRow = ({ item, column }) => (
+    //   <tr>
+    //     {column.map((columnItem, index) => {
+    //       if (columnItem.value.includes(".")) {
+    //         const itemSplit = columnItem.value.split("."); //['address', 'city']
+    //         return <td>{item[itemSplit[0]][itemSplit[1]]}</td>;
+    //       }
+  
+    //       return <td>{item[`${columnItem.value}`]}</td>;
+    //     })}
+    //   </tr>
+    // );
+  
+    // //axios 
+    // const apikiss = ipapi+"/getall";
+  
+    // useEffect(() => {
+    //   axios(apikiit)
+    //     .then((res) => setDataTable(res.data))
+    //     .catch((err) => console.log(err));
+    // }, []);
+  
+    // //table columns
+  
+    // const column = [
+    //   { heading: "Admission Ref.", value: "adm_ref_no" },
+    //   { heading: "Name", value: "student_name" },
+    //   { heading: "City", value: "city" },
+    //   { heading: "Phone", value: "ph_no" },
+    //   { heading: "Department", value: "student_det" },
+    //   // { heading: 'Document', value: 'proof_docu.links' },
+    // ];
+  
 
 
     const [val, setVal] = useState([]);
@@ -38,7 +87,7 @@ const Kissform = () => {
       <div className="container">
         <h4 className="text-success mb-0">Add Cart</h4>
         <p className="mb-3">
-          <small className="text-muted">Add Candidate</small>
+          <small className="text-muted">Add Product</small>
         </p>
         <form>
           <div className="mt-3 mb-3">
@@ -136,7 +185,7 @@ const Kissform = () => {
               <div className="row">
             <div className="col-sm">
               <div className="table-responsive-sm">
-                <table
+                {/* <table
                   className="table table-hover table-responsive-sm"
                   id="admsearch"
                 >
@@ -151,7 +200,7 @@ const Kissform = () => {
                     
                   <Tablerow data={dataTable} column={column}/>
                   </tbody>
-                </table>
+                </table> */}
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import Button from 'react-bootstrap/Button';
 // import Col from 'react-bootstrap/Col';
 // import Form from 'react-bootstrap/Form';
@@ -7,8 +7,10 @@ import React from "react";
 
 // import Container from 'react-bootstrap/Container';
 import "bootstrap/dist/css/bootstrap.css";
+import axios from "axios";
+const { ipapi } = require("../config.json");
 
-const kiitform = () => {
+const Kiitform = () => {
   // const [validated, setValidated] = useState([]);
 
   // const handleSubmit = (event) => {
@@ -21,6 +23,61 @@ const kiitform = () => {
   //   setValidated(true);
   // };
 
+  const [inputs, setInputs] = useState({
+    eid: "3478g",
+    adm_ref_no: "",
+    student_name: "",
+    student_address: "",
+    city: "",
+    state: "",
+    pincode: "",
+    student_ph: "",
+    student_email: "",
+    student_rel: "",
+    amount_by_candidate: "",
+    proof_docu: "",
+    student_dep: "",
+  });
+
+  const apikiitform = ipapi+"/api/kiit/adddata";
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+    console.log(e.target.value);
+  };
+
+  const sendRequest = async () => {
+    const res = await axios
+      .post(apikiitform, {
+        eid: inputs.eid,
+        adm_ref_no: inputs.adm_ref_no,
+        student_name: inputs.student_name,
+        student_address: inputs.student_address,
+        city: inputs.city,
+        state: inputs.state,
+        pincode: inputs.pincode,
+        student_rel: inputs.rel,
+        student_ph: inputs.student_ph,
+        student_email: inputs.student_email,
+        amount_by_candidate: inputs.amount_by_candidate,
+        docu_img: inputs.docu_img,
+        contains_det: inputs.contains_det,
+        student_dep: inputs.student_dep,
+      })
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    return data;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputs);
+    sendRequest().then(() => alert(inputs)); //to meghna
+  };
+
   return (
     <div>
       <div className="container">
@@ -28,7 +85,7 @@ const kiitform = () => {
         <p className="mb-3">
           <small className="text-muted">Add Candidate</small>
         </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mt-3 mb-3">
             <div className="border rounded-4 p-4">
               <h5 className="mb-4">Basic Details</h5>
@@ -39,30 +96,25 @@ const kiitform = () => {
                     <input
                       type="text"
                       className="form-control"
+                      name="adm_ref_no"
                       id="admreffloatingInput"
                       required
+                      value={inputs.adm_ref_no}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
                 <div className="col-sm">
                   <div className="mb-3">
-                    <label for="fnamefloatingInput">First Name</label>
+                    <label for="fnamefloatingInput">Student Name</label>
                     <input
                       type="text"
                       className="form-control"
+                      name="student_name"
                       id="fnamefloatingInput"
                       required
-                    />
-                  </div>
-                </div>
-                <div className="col-sm">
-                  <div className="mb-3">
-                    <label for="lnamefloatingInput">Last Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="lnamefloatingInput"
-                      required
+                      value={inputs.student_name}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -70,22 +122,13 @@ const kiitform = () => {
               <div className="row">
                 <div className="col-sm">
                   <div className="mb-3">
-                    <label for="dobfloatingInput">Date of Birth</label>
-                    <input
-                      type="date"
-                      className="form-control"
-                      id="dobfloatingInput"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="col-sm">
-                  <div className="mb-3">
                     <label for="relationfloatingInput">Relation</label>
-                    <select className="form-select" required>
+                    <select className="form-select" onChange={handleChange} name="student_rel" value={inputs.student_rel}>
                       <option value="">-- Select Relation --</option>
                       <option value="Child of Friend">Child of Friend</option>
-                      <option value="Child of Relative">Child of Relative</option>
+                      <option value="Child of Relative">
+                        Child of Relative
+                      </option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
@@ -93,7 +136,7 @@ const kiitform = () => {
                 <div className="col-sm">
                   <div className="mb-3">
                     <label for="depfloatingInput">Department</label>
-                    <select className="form-select" required>
+                    <select className="form-select" onChange={handleChange} name="student_dep" value={inputs.student_dep}>
                       <option value="">-- Select Department --</option>
                       <option value="Engineering">Engineering</option>
                       <option value="ITI">ITI</option>
@@ -109,7 +152,11 @@ const kiitform = () => {
                     <input
                       type="text"
                       className="form-control"
+                      name="student_address"
                       id="inputAddress"
+                      required
+                      onChange={handleChange}
+                      value={inputs.student_address}
                     />
                   </div>
                 </div>
@@ -119,15 +166,18 @@ const kiitform = () => {
                     <input
                       type="text"
                       className="form-control"
+                      name="city"
                       id="inputCity"
                       required
+                      onChange={handleChange}
+                      value={inputs.city}
                     />
                   </div>
                 </div>
                 <div className="col-sm">
                   <div className="mb-3">
                     <label for="statefloatingInput">State</label>
-                    <select className="form-select" required>
+                    <select className="form-select" required onChange={handleChange} name="state" value={inputs.state}>
                       <option value="">-- Select State --</option>
                       <option value="Andaman and Nicobar Islands">
                         Andaman and Nicobar Islands
@@ -178,11 +228,14 @@ const kiitform = () => {
                 </div>
                 <div className="col-sm">
                   <div className="mb-3">
-                    <label for="zipfloatingInput">Zip</label>
+                    <label for="zipfloatingInput">Pincode</label>
                     <input
                       type="number"
                       className="form-control"
+                      name="pincode"
                       id="inputzip"
+                      onChange={handleChange}
+                      value={inputs.pincode}
                     />
                   </div>
                 </div>
@@ -194,8 +247,11 @@ const kiitform = () => {
                     <input
                       type="email"
                       className="form-control"
+                      name="student_email"
                       id="emailfloatingInput"
-                      required=""
+                      required
+                      onChange={handleChange}
+                      value={inputs.student_email}
                     />
                   </div>
                 </div>
@@ -205,9 +261,13 @@ const kiitform = () => {
                     <input
                       type="tel"
                       maxlength="10"
+                      name="student_ph"
                       pattern="[6-9]{1}[0-9]{9}"
                       className="form-control"
                       id="mobilefloatingInput"
+                      required
+                      onChange={handleChange}
+                      value={inputs.student_ph}
                     />
                   </div>
                 </div>
@@ -220,7 +280,12 @@ const kiitform = () => {
                     <input
                       type="text"
                       className="form-control"
+                      name="amount_by_candidate"
                       aria-label="Amount (to the nearest dollar)"
+                      placeholder="Amount paid by the candidate"
+                      onChange={handleChange}
+                      required
+                      value={inputs.amount_by_candidate}
                     />
                     <span className="input-group-text">.00</span>
                   </div>
@@ -241,10 +306,10 @@ const kiitform = () => {
           {/* <!----><!----><!----> */}
           <div className="mt-3 mb-3">
             <div className="border rounded-4 p-4 text-end">
-            <button type="button" className="btn btn-danger btn">
+              <button type="reset" className="btn btn-danger btn">
                 Cancel
               </button>
-              <button type="disabled" className="btn btn-success btn">
+              <button type="submit" className="btn btn-success btn">
                 Add
               </button>
             </div>
@@ -255,4 +320,4 @@ const kiitform = () => {
   );
 };
 
-export default kiitform;
+export default Kiitform;

@@ -84,10 +84,10 @@ const templeform = () => {
           {/* <!----><!----><!----> */}
           <div className="mt-3 mb-3">
             <div className="border rounded-4 p-4 text-end">
-              <button type="button" className="btn btn-danger btn">
+              <button type="reset" className="btn btn-danger btn">
                 Cancel
               </button>
-              <button type="disabled" className="btn btn-success btn">
+              <button type="submit" className="btn btn-success btn">
                 Add
               </button>
             </div>
