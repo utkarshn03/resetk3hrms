@@ -4,7 +4,7 @@ const { ipapi } = require("../config.json");
 
 // import kiittable from "";
 
-const Kiittable = () => {
+const Kisstable = () => {
   const [dataTable, setDataTable] = useState([]);
   console.log(dataTable);
 
@@ -44,7 +44,7 @@ const Kiittable = () => {
   );
 
   //axios
-  const apikiittable = ipapi+"/api/kiit/getdata";
+  const apikiittable = ipapi+"/api/kiss/getdata";
 
   useEffect(() => {
     axios(apikiittable)
@@ -70,7 +70,7 @@ const Kiittable = () => {
           <div className="row">
             <div className="col-sm">
               <h4 className="text-success mb-0">
-                Kiit Admission <span className="text-primary">(0)</span>
+                Kiss Bills <span className="text-primary">(0)</span>
               </h4>
               <p className="mb-3">
                 <small className="text-muted"></small>
@@ -131,4 +131,4 @@ const Kiittable = () => {
   );
 };
 
-export default Kiittable;
+export default Kisstable;

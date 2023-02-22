@@ -3,17 +3,19 @@ import React, { useState } from "react";
 import "./App.css";
 //import Header from './components/Header';
 import Kissform from './components/Kissform';
-// import Kimsform from './pages/kimsform';
 import Kiitform from "./components/kiitform";
-// import Successi from './pages/success';
 import KiitData from './components/kiittable';
-// import KimsData from './pages/kimst';
 import NavBar from "./components/NavBar";
 import EmployeeDet from "./components/Employeedet";
 import Footer from "./components/Footer";
 import Hospitalityform from './components/Hospitalityform';
 import Templeform from './components/Templeform';
 import { Alert } from './components/Alert';
+import Kimsform from "./components/kimsform";
+import Kimstable from "./components/Kimstable";
+import Kisstable from "./components/Kisstable";
+import Templetable from "./components/Templetable";
+import Hospitalitytable from "./components/Hospitalitytable";
 //import Welcome from './components/Welcome';
 
 
@@ -62,10 +64,15 @@ function App() {
       <br />
       <br />
       <Kissform />
+      <Kisstable />
       <Kiitform />
       <KiitData />
+      <Kimsform />
+      <Kimstable />
       <Templeform />
+      <Templetable />
       <Hospitalityform />
+      <Hospitalitytable />
       <Footer />
     </>
     // <Router>

@@ -47,7 +47,7 @@ const Kissform = () => {
     // );
   
     // //axios 
-    // const apikiss = ipapi+"/getall";
+    // const apikiss = ipapi+"/kiss/adddata";
   
     // useEffect(() => {
     //   axios(apikiit)

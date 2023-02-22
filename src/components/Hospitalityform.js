@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import Button from 'react-bootstrap/Button';
 // import Col from 'react-bootstrap/Col';
 // import Form from 'react-bootstrap/Form';
@@ -7,15 +7,17 @@ import React from "react";
 
 // import Container from 'react-bootstrap/Container';
 import "bootstrap/dist/css/bootstrap.css";
+import axios from 'axios';
+const ipapi = require('../config.json');
 
-const hospitalityform = () => {
+const Hospitalityform = () => {
   
   const [inputs, setInputs] = useState({
     eid: "3478g",
     
   });
 
-  const apikiitform = ipapi+"/api/kiit/adddata";
+  const apihospitalityform = ipapi+"/api/hospitality/add";
 
   const handleChange = (e) => {
     setInputs((prev) => ({
@@ -27,21 +29,9 @@ const hospitalityform = () => {
 
   const sendRequest = async () => {
     const res = await axios
-      .post(apikiitform, {
+      .post(apihospitalityform, {
         eid: inputs.eid,
-        adm_ref_no: inputs.adm_ref_no,
-        student_name: inputs.student_name,
-        student_address: inputs.student_address,
-        city: inputs.city,
-        state: inputs.state,
-        pincode: inputs.pincode,
-        student_rel: inputs.rel,
-        student_ph: inputs.student_ph,
-        student_email: inputs.student_email,
-        amount_by_candidate: inputs.amount_by_candidate,
-        docu_img: inputs.docu_img,
-        contains_det: inputs.contains_det,
-        student_dep: inputs.student_dep,
+        
       })
       .catch((err) => console.log(err));
     const data = await res.data;
@@ -132,4 +122,4 @@ const hospitalityform = () => {
   );
 };
 
-export default hospitalityform;
+export default Hospitalityform;

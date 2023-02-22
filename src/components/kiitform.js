@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import Button from 'react-bootstrap/Button';
 // import Col from 'react-bootstrap/Col';
 // import Form from 'react-bootstrap/Form';
@@ -11,18 +11,7 @@ import axios from "axios";
 const { ipapi } = require("../config.json");
 
 const Kiitform = () => {
-  // const [validated, setValidated] = useState([]);
-
-  // const handleSubmit = (event) => {
-  //   const form = event.currentTarget;
-  //   if (form.checkValidity() === false) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   }
-
-  //   setValidated(true);
-  // };
-
+  
   const [inputs, setInputs] = useState({
     eid: "3478g",
     adm_ref_no: "",

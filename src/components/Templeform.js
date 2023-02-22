@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 // import Button from 'react-bootstrap/Button';
 // import Col from 'react-bootstrap/Col';
 // import Form from 'react-bootstrap/Form';
@@ -7,19 +7,46 @@ import React from "react";
 
 // import Container from 'react-bootstrap/Container';
 import "bootstrap/dist/css/bootstrap.css";
+import axios from "axios";
+import dayjs from "dayjs";
+const ipapi = require('../config.json');
 
-const templeform = () => {
+const Templeform = () => {
   // const [validated, setValidated] = useState([]);
 
-  // const handleSubmit = (event) => {
-  //   const form = event.currentTarget;
-  //   if (form.checkValidity() === false) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   }
+  const [inputs, setInputs] = useState({
+    eid: "3478g",
+    
+  });
 
-  //   setValidated(true);
-  // };
+  const apitempleform = ipapi+"/api/temple/adddata";
+
+  const sendRequest = async () => {
+    const res = await axios
+      .post(apitempleform, {
+        eid: inputs.eid,
+        
+      })
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    return data;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputs);
+    sendRequest().then(() => alert(inputs)); //to meghna
+  };
+
+  const [valuetime, setValuetime] = React.useState(dayjs().format('MM-DD-YYYY'));
+    const handleChangetime = (newValuetime) => {
+        console.log(newValuetime);
+        const time = new Date(newValuetime);
+        const t = new Date(time.getTime() - time.getTimezoneOffset()*60000).toISOString();
+        setValuetime(t);
+        console.log(t);
+        //avail_date=newValuetime;
+    };
 
   return (
     <div>
@@ -39,8 +66,10 @@ const templeform = () => {
                     <input
                       type="date"
                       className="form-control"
-                      id="dobfloatingInput"
+                      id="dopsfloatingInput"
                       required
+                      onChange={handleChangetime}
+                      
                     />
                   </div>
                 </div>
@@ -98,4 +127,4 @@ const templeform = () => {
   );
 };
 
-export default templeform;
+export default Templeform;

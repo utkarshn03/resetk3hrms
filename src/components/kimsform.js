@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Button from 'react-bootstrap/Button';
 // import Col from 'react-bootstrap/Col';
 // import Form from 'react-bootstrap/Form';
@@ -7,7 +7,9 @@ import React from "react";
 
 // import Container from 'react-bootstrap/Container';
 import "bootstrap/dist/css/bootstrap.css";
-
+import axios from 'axios';
+const ipapi = require('../config.json');
+ 
 const Kimsform = () => {
   
     const [inputs, setInputs] = useState({

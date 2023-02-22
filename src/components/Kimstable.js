@@ -70,7 +70,7 @@ const Kimstable = () => {
           <div className="row">
             <div className="col-sm">
               <h4 className="text-success mb-0">
-                Kiit Admission <span className="text-primary">(0)</span>
+                Kims Referral <span className="text-primary">(0)</span>
               </h4>
               <p className="mb-3">
                 <small className="text-muted"></small>
