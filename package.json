@@ -15,13 +15,8 @@
     "react-data-table-component": "^7.5.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
-<<<<<<< HEAD
-    "react-scripts": "5.0.1",
-    "styled-component": "^2.8.0",
-=======
     "react-scripts": "^5.0.1",
     "styled-components": "^5.3.6",
->>>>>>> 4c0db958879ecc789d80c1b8e8c5b07cc7c1d2a3
     "web-vitals": "^2.1.4"
   },
   "scripts": {

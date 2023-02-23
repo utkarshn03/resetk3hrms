@@ -28,4 +28,4 @@ function Welcomecard() {
   )
 }
 
-export default Welcomecard
+export default Welcomecard;
