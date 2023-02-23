@@ -8,7 +8,7 @@ function NavBar() {
       <nav className="py-3 mb-8 border-bottom navbar navbar-expand-lg">
         <div className="container-fluid d-flex flex-wrap">
         <a
-                  href="/"
+                  href="/k3/home"
                   className="nav-link nav-brand link-dark px-4 active"
                   aria-current="page"
                 >
@@ -31,27 +31,27 @@ function NavBar() {
                 
               </li>
               <li className="nav-item">
-                <a href="#kiit" className="nav-link link-dark px-3">
+                <a href="/k3/kiit" className="nav-link link-dark px-3">
                   Kiit
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link link-dark px-3">
+                <a href="/k3/kims" className="nav-link link-dark px-3">
                   Kims
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link link-dark px-3">
+                <a href="/k3/kiss" className="nav-link link-dark px-3">
                   Kiss
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link link-dark px-3">
+                <a href="/k3/temple" className="nav-link link-dark px-3">
                   Temple
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link link-dark px-3">
+                <a href="/k3/hospitality" className="nav-link link-dark px-3">
                   Hospitality
                 </a>
               </li>

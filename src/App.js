@@ -2,20 +2,30 @@ import React, { useState } from "react";
 // import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import "./App.css";
 //import Header from './components/Header';
+import { BrowserRouter, Route,Routes } from "react-router-dom";
+import Kiit from "./pages/Kiit";
 import Kissform from './components/Kissform';
-import Kiitform from "./components/kiitform";
-import KiitData from './components/kiittable';
+import Kiitform from "./components/Kiitform";
+import KiitData from './components/Kiittable';
 import NavBar from "./components/NavBar";
-import EmployeeDet from "./components/Employeedet";
+import Welcomecard from "./components/Welcomecard";
+import Employeedet from "./components/Employeedet";
 import Footer from "./components/Footer";
 import Hospitalityform from './components/Hospitalityform';
 import Templeform from './components/Templeform';
+<<<<<<< HEAD
 //import { Alert } from './components/Alert';
 import Kimsform from "./components/kimsform";
+=======
+import { Alert } from './components/Alert';
+import Kimsform from "./components/Kimsform";
+>>>>>>> 4c0db958879ecc789d80c1b8e8c5b07cc7c1d2a3
 import Kimstable from "./components/Kimstable";
 import Kisstable from "./components/Kisstable";
 import Templetable from "./components/Templetable";
 import Hospitalitytable from "./components/Hospitalitytable";
+import WelcomePage from "./pages/WelcomePage";
+import Entry from "./pages/Entry";
 //import Welcome from './components/Welcome';
 
 
@@ -35,45 +45,32 @@ function App() {
     }, 1500 );
   }
 
+  const [user,setUser]= useState(null)
 
   return (
     <>
-      <NavBar title="header" />
-      <div>
-        <svg
-          className="bd-placeholder-img bd-placeholder-img-lg img-fluid"
-          width="100%"
-          height="200"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="Placeholder: Welcome to K3 HRMS"
-          preserveAspectRatio="xMidYMid slice"
-          focusable="false"
-        >
-          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-          <title></title>
-          <rect width="100%" height="100%" fill="#868e96">
-            hello
-          </rect>
-          <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-            Welcome to K3 HRMS{" "}
-          </text>
-        </svg>
-      </div>
-      <EmployeeDet />
-      <br />
-      <br />
-      <Kissform />
-      <Kisstable />
-      <Kiitform />
-      <KiitData />
-      <Kimsform />
-      <Kimstable />
-      <Templeform />
-      <Templetable />
-      <Hospitalityform />
-      <Hospitalitytable />
-      <Footer />
+      
+      <BrowserRouter>
+       <Routes>
+       <Route path='/' element={<Entry setUser={setUser}/>}/>
+       <Route path="/k3" element={<NavBar title="header"/>}/>
+       <Route path="/k3/home" element={<div><NavBar/><WelcomePage/></div>}/>
+       <Route path="/k3/kiit" element={<div><NavBar/><Kiit/></div>}/>
+       <Route path="/k3/kiit/form" element={<div><NavBar/><Kiitform/></div>}/>
+       <Route path="/k3/kims" element={<div><NavBar/><Kimstable/></div>}/>
+       <Route path="/k3/kims/form" element={<div><NavBar/><Kimsform/></div>}/>
+       <Route path="/k3/kiss" element={<div><NavBar/><Kisstable/></div>}/>
+       <Route path="/k3/kiss/form" element={<div><NavBar/><Kissform/></div>}/>
+       <Route path="/k3/hospitality" element={<div><NavBar/><Hospitalitytable/></div>}/>
+       <Route path="/k3/hospitality/form" element={<div><NavBar/><Kissform/></div>}/>
+       <Route path="/k3/temple" element={<div><NavBar/><Templetable/></div>}/>
+       <Route path="/k3/temple/form" element={<div><NavBar/><Kissform/></div>}/>
+       <Route path="/k3/socials" element={<div><NavBar/><WelcomePage/></div>}/>
+      
+       
+       </Routes>
+       
+      </BrowserRouter>
     </>
     // <Router>
     //   <Routes>
@@ -108,3 +105,21 @@ function App() {
 }
 
 export default App;
+
+
+
+// <NavBar title="header" />
+//       <WelcomePage/>
+//       <br />
+//       <br />
+//       <Kissform />
+//       <Kisstable />
+//       <Kiitform />
+//       <KiitData />
+//       <Kimsform />
+//       <Kimstable />
+//       <Templeform />
+//       <Templetable />
+//       <Hospitalityform />
+//       <Hospitalitytable />
+//       <Footer />

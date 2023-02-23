@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const { ipapi } = require("../config.json");
 
@@ -63,6 +64,11 @@ const Kiittable = () => {
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
 
+  const navigate = useNavigate() 
+  const handleClick= async(e)=>{
+       e.preventDefault()
+       navigate("./k3/kiit/form")
+  }
   return (
     <div class="bg-secondary bg-opacity-10 py-5">
       <div className="py-5">
@@ -77,9 +83,10 @@ const Kiittable = () => {
               </p>
             </div>
             <div className="col-sm-auto">
-              <a href="form.html" className="btn btn-success mx-2">
-                Add Candidate Details
-              </a>
+              <button >
+                <a  href="/k3/kiit/form" className="btn btn-success mx-2">
+                Add Candidate Details </a>
+              </button>
             </div>
           </div>
 

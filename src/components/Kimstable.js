@@ -77,7 +77,7 @@ const Kimstable = () => {
               </p>
             </div>
             <div className="col-sm-auto">
-              <a href="form.html" className="btn btn-success mx-2">
+              <a href="/k3/kims/form" className="btn btn-success mx-2">
                 Add Patient Details
               </a>
             </div>
