@@ -10,7 +10,7 @@ import EmployeeDet from "./components/Employeedet";
 import Footer from "./components/Footer";
 import Hospitalityform from './components/Hospitalityform';
 import Templeform from './components/Templeform';
-import { Alert } from './components/Alert';
+//import { Alert } from './components/Alert';
 import Kimsform from "./components/kimsform";
 import Kimstable from "./components/Kimstable";
 import Kisstable from "./components/Kisstable";
