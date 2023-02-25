@@ -1,12 +1,40 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import DataTable from "react-data-table-component";
 const { ipapi } = require("../config.json");
+const ExpanddedComponent = ({data}) => <pre>{JSON.stringify(data, null, 2)}</pre>
 
 // import kiittable from "";
 
 const Hospitalitytable = () => {
   const [dataTable, setDataTable] = useState([]);
   console.log(dataTable);
+
+/*   const Table = ({ data, column }) => {
+    return (
+      <table class="table table-hover table-responsive-sm" id="admsearch">
+        <thead>
+          <tr>
+            {column.map((item, index) => (
+              <TableHeadItem item={item} />
+            ))}
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          {data.map((item, index) => (
+            <TableRow item={item} column={column} />
+          ))}
+        </tbody>
+        <tfoot class="table-group-divider">
+          <tr>
+            {column.map((item, index) => (
+              <TableHeadItem item={item} />
+            ))}
+          </tr>
+        </tfoot>
+      </table>
+    );
+  }; */
 
   const Table = ({ data, column }) => {
     return (
@@ -34,6 +62,8 @@ const Hospitalitytable = () => {
     );
   };
 
+
+  
   const TableHeadItem = ({ item }) => <th>{item.heading}</th>;
   const TableRow = ({ item, column }) => (
     <tr>

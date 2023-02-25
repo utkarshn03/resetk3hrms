@@ -47,7 +47,7 @@ function App() {
        <Routes>
        <Route path='/' element={<Entry setUser={setUser}/>}/>
        <Route path="/k3" element={<NavBar title="header"/>}/>
-       <Route path="/k3/home" element={<div><NavBar/><Welcomecard/><Employeedetail/><Footer/></div>}/>
+       <Route path="/k3/home" element={<div><NavBar/><Welcomecard/><Footer/></div>}/>
        <Route path="/k3/kiit" element={<div><NavBar/><Kiit/><Footer/></div>}/>
        <Route path="/k3/kiit/form" element={<div><NavBar/><br/><Kiitform/><Footer/></div>}/>
        <Route path="/k3/kims" element={<div><NavBar/><Kimstable/><Footer/></div>}/>

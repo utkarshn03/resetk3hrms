@@ -30,6 +30,7 @@ export default function Entry({setUser}) {
         </div>
         <ResponsiveFlex className='form-content'>
               <FlexContent className='entry-name'>
+                
                 <br/>
                  Welcome to Kiit HRMS 
               </FlexContent>
