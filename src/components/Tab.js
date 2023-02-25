@@ -1,20 +1,15 @@
 import React from "react";
+import styled from "styled-components";
 // import { Link } from "react-router-dom";
 // import Kimsform from './kimsform';
 // import "./Nav.css";
-function NavBar() {
+function Tab() {
   return (
-    <div className="header">
-      <nav className="py-3 mb-8 border-bottom navbar navbar-expand-lg">
-        <div className="container-fluid d-flex flex-wrap">
-        <a
-                  href="/k3/home"
-                  className="nav-link nav-brand link-dark px-4 active"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-          <button
+    <Wrapper className="bg-dark bg-opacity-25 py-5">
+     
+        <div className="container-fluid d-flex  justify-content-center flex-wrap"> 
+        
+          {/* <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -24,11 +19,17 @@ function NavBar() {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          </button> */}
+           
             <ul className="nav me-auto">
               <li className="nav-item">
-                
+              <a
+                  href="/k3/home"
+                  className="nav-link nav-brand link-dark px-4 active"
+                  aria-current="page"
+                >
+                  Home
+                </a>
               </li>
               <li className="nav-item">
                 <a href="/k3/kiit" className="nav-link link-dark px-3">
@@ -56,16 +57,17 @@ function NavBar() {
                 </a>
               </li>
             </ul>
-            <ul className="nav">
+            </div>
+            {/* <ul className="nav">
               <li className="nav-item">
                 <a href="/" className="nav-link link-dark px-3">
                   Logout
                 </a>
               </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+            </ul> */}
+          
+        
+    
       {/* <div>
         {/* <img src={logo} height="50px" width="80px" /> 
       </div> */}
@@ -90,8 +92,23 @@ function NavBar() {
         </Link>
       </div> */}
       {/* <button className="kiit-btn">logout</button> */}
-    </div>
+    </Wrapper>
   );
 }
 
-export default NavBar;
+export default Tab;
+
+
+const Wrapper= styled.div`
+     
+     width:100%;
+     box-sizing:border-box;
+     padding: 1rem;
+
+     div{
+      border-radius:20%;
+      background-color: white;
+      display:flex;
+      flex-direction;
+     }
+`
