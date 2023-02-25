@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {FormContainer, Heading,FormContent,FormHeader } from './styled.js';
+
+
 import axios from 'axios';
 const ipapi = require('../config.json');
 export default function Login({setUser}) {
@@ -15,9 +17,8 @@ export default function Login({setUser}) {
       console.log("yesa")
       if(!email||!password) return;
       setUser({email:email, password:password});
-      console.log("email",email);      
-      sendRequest().then(() => alert("hello")); 
-      navigate("/k3/home")
+      console.log("email",email)
+      navigate("/k3/kiit")
   };
   const onChangeEmail=(e)=>{
     setEmail({[e.target.name] : e.target.value})
@@ -25,19 +26,6 @@ export default function Login({setUser}) {
   const onChangePassword=(e)=>{
     setPassword({...password, [e.target.name] : e.target.value})
   }
-
-  const apilogin = ipapi+"/api/user/login";
-
-  const sendRequest = async () => {
-    const res = await axios 
-    .post(apilogin,{
-      
-    })
-    .catch((err) => console.log(err));
-    const data = await res.data;
-    return data;
-  }
-
   return (
     <FormContainer>
     <Heading>

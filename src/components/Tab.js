@@ -104,4 +104,11 @@ const Wrapper= styled.div`
      width:100%;
      box-sizing:border-box;
      padding: 1rem;
+
+     div{
+      border-radius:20%;
+      background-color: white;
+      display:flex;
+      flex-direction;
+     }
 `
