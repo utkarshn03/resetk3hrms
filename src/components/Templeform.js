@@ -53,7 +53,7 @@ const Templeform = () => {
       <div className="container">
         <h4 className="text-success mb-0">Temple Trust</h4>
         <p className="mb-3">
-          <small className="text-muted">Add Service</small>
+          <small className="text-muted">Add Service Availed</small>
         </p>
         <form>
           <div className="mt-3 mb-3">

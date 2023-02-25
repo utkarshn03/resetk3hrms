@@ -10,24 +10,29 @@ const Hospitalitytable = () => {
 
   const Table = ({ data, column }) => {
     return (
-      <table class="table table-hover table-responsive-sm"
-      id="admsearch">
+      <table class="table table-hover table-responsive-sm" id="admsearch">
         <thead>
           <tr>
-            {column.map((item, index) => <TableHeadItem item={item} />)}
+            {column.map((item, index) => (
+              <TableHeadItem item={item} />
+            ))}
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          {data.map((item, index) => <TableRow item={item} column={column} />)}
+          {data.map((item, index) => (
+            <TableRow item={item} column={column} />
+          ))}
         </tbody>
-        <tfoot  class="table-group-divider">
-        <tr>
-            {column.map((item, index) => <TableHeadItem item={item} />)}
+        <tfoot class="table-group-divider">
+          <tr>
+            {column.map((item, index) => (
+              <TableHeadItem item={item} />
+            ))}
           </tr>
         </tfoot>
       </table>
-    )
-  }
+    );
+  };
 
   const TableHeadItem = ({ item }) => <th>{item.heading}</th>;
   const TableRow = ({ item, column }) => (
@@ -44,7 +49,7 @@ const Hospitalitytable = () => {
   );
 
   //axios
-  const apihospitalitytable = ipapi+"/api/hospitality/";
+  const apihospitalitytable = ipapi + "/api/hospitality/";
 
   useEffect(() => {
     axios(apihospitalitytable)
@@ -55,11 +60,9 @@ const Hospitalitytable = () => {
   //table columns
 
   const column = [
-    { heading: "Admission Ref.", value: "adm_ref_no" },
-    { heading: "Name", value: "student_name" },
-    { heading: "City", value: "city" },
-    { heading: "Phone", value: "student_ph" },
-    { heading: "Department", value: "student_dep" },
+    { heading: "Purpose", value: "purpose" },
+    { heading: "Date of Purchase", value: "dop" },
+    { heading: "Total Price (₹)", value: "city" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
 
@@ -98,9 +101,9 @@ const Hospitalitytable = () => {
                 id="admSelect"
               >
                 <option value="">All</option>
-                <option value="Engineering">Engineering</option>
-                <option value="ITI">ITI</option>
-                <option value="Polytechnic">Polytechnic</option>
+                <option value="Food">Food</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Party Booking">Party Booking</option>
               </select>
             </div>
 
@@ -121,7 +124,7 @@ const Hospitalitytable = () => {
           <div className="row">
             <div className="col-sm">
               <div className="table-responsive-sm">
-                <Table data={dataTable} column={column}/>
+                <Table data={dataTable} column={column} />
               </div>
             </div>
           </div>

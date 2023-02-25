@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-// import Button from 'react-bootstrap/Button';
-// import Col from 'react-bootstrap/Col';
-// import Form from 'react-bootstrap/Form';
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import Row from 'react-bootstrap/Row';
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import moment from "moment";
+import dayjs from "dayjs";
 
 // import Container from 'react-bootstrap/Container';
 import "bootstrap/dist/css/bootstrap.css";
@@ -14,18 +12,7 @@ const Kimsform = () => {
   
     const [inputs, setInputs] = useState({
         eid: "3478g",
-        adm_ref_no: "",
-        student_name: "",
-        student_address: "",
-        city: "",
-        state: "",
-        pincode: "",
-        student_ph: "",
-        student_email: "",
-        student_rel: "",
-        amount_by_candidate: "",
-        proof_docu: "",
-        student_dep: "",
+        
       });
     
       const apikimsform = ipapi+"/api/kims/adddata";
@@ -42,19 +29,7 @@ const Kimsform = () => {
         const res = await axios
           .post(apikimsform, {
             eid: inputs.eid,
-            adm_ref_no: inputs.adm_ref_no,
-            student_name: inputs.student_name,
-            student_address: inputs.student_address,
-            city: inputs.city,
-            state: inputs.state,
-            pincode: inputs.pincode,
-            student_rel: inputs.rel,
-            student_ph: inputs.student_ph,
-            student_email: inputs.student_email,
-            amount_by_candidate: inputs.amount_by_candidate,
-            docu_img: inputs.docu_img,
-            contains_det: inputs.contains_det,
-            student_dep: inputs.student_dep,
+            
           })
           .catch((err) => console.log(err));
         const data = await res.data;
@@ -65,6 +40,21 @@ const Kimsform = () => {
         e.preventDefault();
         console.log(inputs);
         sendRequest().then(() => alert(inputs)); //to meghna
+      };
+
+      const [valuetime, setValuetime] = React.useState(
+        dayjs().format("YYYY-MM-DD"),
+      );
+    
+      const handleChangetime = (newValuetime) => {
+        console.log(newValuetime)
+        const time = new Date(newValuetime.target.value);
+        console.log(time)
+        var t = new Date(time.getTime() - time.getTimezoneOffset() * 60000).toISOString();
+        t = dayjs(t).format("YYYY-MM-DD");
+        setValuetime(t);
+        console.log(t);
+        //avail_date=newValuetime;
       };
 
 
@@ -88,6 +78,7 @@ const Kimsform = () => {
                       className="form-control"
                       id="uhidfloatingInput"
                       required
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -99,6 +90,7 @@ const Kimsform = () => {
                       className="form-control"
                       id="fnamefloatingInput"
                       required
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -107,11 +99,18 @@ const Kimsform = () => {
                 <div className="col-sm">
                   <div className="mb-3">
                     <label for="dobfloatingInput">Date of Purchase/Service Avail</label>
-                    <input
+                    <Form.Control
                       type="date"
                       className="form-control"
-                      id="dopfloatingInput"
-                      required
+                      /* id="dobfloatingInput" */
+                      id="start"
+                      name="valuetime"
+                      /* disabledFuture="true" */
+                      max={moment().format("YYYY-MM-DD")}
+                      inputFormat="YYYY-MM-DD"
+                      disabled
+                      value={valuetime}
+                      onChange={handleChangetime}
                     />
                   </div>
                 </div>
@@ -120,8 +119,9 @@ const Kimsform = () => {
                     <label for="relationfloatingInput">Relation</label>
                     <select className="form-select" required>
                       <option value="">-- Select Relation --</option>
-                      <option value="Child of Friend">Child of Friend</option>
-                      <option value="Child of Relative">Child of Relative</option>
+                      <option value="Self">Self</option>
+                      <option value="Friend">Friend</option>
+                      <option value="Relative">Relative</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
@@ -138,6 +138,7 @@ const Kimsform = () => {
                       className="form-control"
                       id="mobilefloatingInput"
                       required
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -152,6 +153,8 @@ const Kimsform = () => {
                       className="form-control"
                       aria-label="Amount (to the nearest dollar)"
                       placeholder="Amount paid"
+                      onChange={handleChange}
+                      required
                     />
                     <span className="input-group-text">.00</span>
                   </div>

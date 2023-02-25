@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+// import DataTable from "react-data-table-component";
 import axios from "axios";
 const { ipapi } = require("../config.json");
 
@@ -14,7 +15,7 @@ const Templetable = () => {
       id="admsearch">
         <thead>
           <tr>
-            {column.map((item, index) => <TableHeadItem item={item} />)}
+            {column.map((item, index) => {(!item)? <p>no user data found</p> : <TableHeadItem item={item} />})}
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -55,11 +56,11 @@ const Templetable = () => {
   //table columns
 
   const column = [
-    { heading: "Admission Ref.", value: "adm_ref_no" },
-    { heading: "Name", value: "student_name" },
-    { heading: "City", value: "city" },
-    { heading: "Phone", value: "student_ph" },
-    { heading: "Department", value: "student_dep" },
+    { name: "Admission Ref.", value: "adm_ref_no" },
+    { name: "Name", value: "student_name" },
+    { name: "City", value: "city" },
+    { name: "Phone", value: "student_ph" },
+    { name: "Department", value: "student_dep" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
 
