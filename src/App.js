@@ -7,7 +7,7 @@ import Kiit from "./pages/Kiit";
 import Kissform from './components/Kissform';
 import Kiitform from "./components/Kiitform";
 import KiitData from './components/Kiittable';
-import NavBar from "./components/NavBar";
+import Tab from "./components/Tab";
 import Welcomecard from "./components/Welcomecard";
 import Employeedet from "./components/Employeedet";
 import Footer from "./components/Footer";
@@ -21,6 +21,7 @@ import Templetable from "./components/Templetable";
 import Hospitalitytable from "./components/Hospitalitytable";
 import WelcomePage from "./pages/WelcomePage";
 import Entry from "./pages/Entry";
+import Header from "./components/Header";
 //import Welcome from './components/Welcome';
 
 
@@ -48,19 +49,19 @@ function App() {
       <BrowserRouter>
        <Routes>
        <Route path='/' element={<Entry setUser={setUser}/>}/>
-       <Route path="/k3" element={<NavBar title="header"/>}/>
-       <Route path="/k3/home" element={<div><NavBar/><WelcomePage/></div>}/>
-       <Route path="/k3/kiit" element={<div><NavBar/><Kiit/></div>}/>
-       <Route path="/k3/kiit/form" element={<div><NavBar/><Kiitform/></div>}/>
-       <Route path="/k3/kims" element={<div><NavBar/><Kimstable/></div>}/>
-       <Route path="/k3/kims/form" element={<div><NavBar/><Kimsform/></div>}/>
-       <Route path="/k3/kiss" element={<div><NavBar/><Kisstable/></div>}/>
-       <Route path="/k3/kiss/form" element={<div><NavBar/><Kissform/></div>}/>
-       <Route path="/k3/hospitality" element={<div><NavBar/><Hospitalitytable/></div>}/>
-       <Route path="/k3/hospitality/form" element={<div><NavBar/><Kissform/></div>}/>
-       <Route path="/k3/temple" element={<div><NavBar/><Templetable/></div>}/>
-       <Route path="/k3/temple/form" element={<div><NavBar/><Kissform/></div>}/>
-       <Route path="/k3/socials" element={<div><NavBar/><WelcomePage/></div>}/>
+       <Route path="/k3" element={<Header title="header"/>}/>
+       <Route path="/k3/home" element={<div><Header/></div>}/>
+       <Route path="/k3/kiit" element={<div><Header/><Kiit/></div>}/>
+       <Route path="/k3/kiit/form" element={<div><Header/><Kiitform/></div>}/>
+       <Route path="/k3/kims" element={<div><Header/><Kimstable/></div>}/>
+       <Route path="/k3/kims/form" element={<div><Header/><Kimsform/></div>}/>
+       <Route path="/k3/kiss" element={<div><Header/><Kisstable/></div>}/>
+       <Route path="/k3/kiss/form" element={<div><Header/><Kissform/></div>}/>
+       <Route path="/k3/hospitality" element={<div><Header/><Hospitalitytable/></div>}/>
+       <Route path="/k3/hospitality/form" element={<div><Header/><Kissform/></div>}/>
+       <Route path="/k3/temple" element={<div><Header/><Templetable/></div>}/>
+       <Route path="/k3/temple/form" element={<div><Header/><Kissform/></div>}/>
+       <Route path="/k3/socials" element={<div><Header/><WelcomePage/></div>}/>
       
        
        </Routes>
@@ -74,7 +75,7 @@ function App() {
     //     <Route path="/Kimsform" element={<Kimsform />} />
 
     //     <Route path="/KiitData" element={<KiitData />} /> */}
-    //     <Route exact path="/NavBar" element={<NavBar />} />
+    //     <Route exact path="/Tab" element={<Tab />} />
     //     <Route path="/Kiitform" element={<Kiitform />} />
     //   </Routes>
     // </Router>
@@ -88,7 +89,7 @@ function App() {
     //     <Route path="/Kiitform" element={<Kiitform />} />
     //     <Route path="/KiitData" element={<KiitData />} />
     //     <Route path="/KimsData" element={<KimsData />} />
-    //     <Route path="/NavBar" element={<NavBar />} />
+    //     <Route path="/Tab" element={<Tab />} />
     //     <Route path="/Hospitalityform" element={<Hospitalityform />} />
     //     <Route path="/Templetrustform" element={<Templetrustform />} />
 
@@ -103,7 +104,7 @@ export default App;
 
 
 
-// <NavBar title="header" />
+// <Tab title="header" />
 //       <WelcomePage/>
 //       <br />
 //       <br />
