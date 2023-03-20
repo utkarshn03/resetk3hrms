@@ -8,12 +8,13 @@ import Kissform from './components/Kissform';
 import Kiitform from "./components/Kiitform";
 import KiitData from './components/Kiittable';
 import NavBar from "./components/NavBar";
-import Welcomecard from "./components/Welcomecard";
-import Employeedet from "./components/Employeedet";
-import Footer from "./components/Footer";
-import Hospitalityform from './components/Hospitalityform';
-import Templeform from './components/Templeform';
-import { Alert } from './components/Alert';
+// import Welcomecard from "./components/Welcomecard";
+// import Employeedet from "./components/Employeedet";
+// import Footer from "./components/Footer";
+// import Hospitalityform from './components/Hospitalityform';
+// import Templeform from './components/Templeform';
+// import { Alert } from './components/Alert';
+import Header from "./components/Header";
 import Kimsform from "./components/Kimsform";
 import Kimstable from "./components/Kimstable";
 import Kisstable from "./components/Kisstable";
@@ -49,7 +50,7 @@ function App() {
       <BrowserRouter>
        <Routes>
        <Route path='/' element={<Entry setUser={setUser}/>}/>
-       <Route path="/k3" element={<NavBar title="header"/>}/>
+       <Route path="/k3" element={<Header/>}/>
        <Route path="/k3/home" element={<div><NavBar/><WelcomePage/></div>}/>
        <Route path="/k3/kiit" element={<div><NavBar/><Kiit/></div>}/>
        <Route path="/k3/kiit/form" element={<div><NavBar/><Kiitform/></div>}/>
