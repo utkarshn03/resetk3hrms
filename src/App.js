@@ -8,6 +8,7 @@ import Kissform from './components/Kissform';
 import Kiitform from "./components/Kiitform";
 import KiitData from './components/Kiittable';
 import NavBar from "./components/NavBar";
+<<<<<<< Updated upstream
 // import Welcomecard from "./components/Welcomecard";
 // import Employeedet from "./components/Employeedet";
 // import Footer from "./components/Footer";
@@ -15,6 +16,12 @@ import NavBar from "./components/NavBar";
 // import Templeform from './components/Templeform';
 // import { Alert } from './components/Alert';
 import Header from "./components/Header";
+=======
+import Welcomecard from "./components/Welcomecard";
+import Employeedet from "./components/Employeedet";
+import Footer from "./components/Footer";
+import Hospitalityform from './components/Hospitalityform';
+>>>>>>> Stashed changes
 import Kimsform from "./components/Kimsform";
 import Kimstable from "./components/Kimstable";
 import Kisstable from "./components/Kisstable";
@@ -23,6 +30,8 @@ import Hospitalitytable from "./components/Hospitalitytable";
 import WelcomePage from "./pages/WelcomePage";
 import Templeform from "./components/Templeform";
 import Entry from "./pages/Entry";
+import Header from "./components/Header";
+
 //import Welcome from './components/Welcome';
 
 
@@ -50,6 +59,7 @@ function App() {
       <BrowserRouter>
        <Routes>
        <Route path='/' element={<Entry setUser={setUser}/>}/>
+<<<<<<< Updated upstream
        <Route path="/k3" element={<Header/>}/>
        <Route path="/k3/home" element={<div><NavBar/><WelcomePage/></div>}/>
        <Route path="/k3/kiit" element={<div><NavBar/><Kiit/></div>}/>
@@ -63,6 +73,21 @@ function App() {
        <Route path="/k3/temple" element={<div><NavBar/><Templetable/></div>}/>
        <Route path="/k3/temple/form" element={<div><NavBar/><Kissform/></div>}/>
        <Route path="/k3/socials" element={<div><NavBar/><WelcomePage/></div>}/>
+=======
+       <Route path="/k3" element={<Header title="header"/>}/>
+       <Route path="/k3/home" element={<div><Header/><WelcomePage/></div>}/>
+       <Route path="/k3/kiit" element={<div><Header/><Kiit/></div>}/>
+       <Route path="/k3/kiit/form" element={<div><Header/><Kiitform/></div>}/>
+       <Route path="/k3/kims" element={<div><Header/><Kimstable/></div>}/>
+       <Route path="/k3/kims/form" element={<div><Header/><Kimsform/></div>}/>
+       <Route path="/k3/kiss" element={<div><Header/><Kisstable/></div>}/>
+       <Route path="/k3/kiss/form" element={<div><Header/><Kissform/></div>}/>
+       <Route path="/k3/hospitality" element={<div><Header/><Hospitalitytable/></div>}/>
+       <Route path="/k3/hospitality/form" element={<div><Header/><Kissform/></div>}/>
+       <Route path="/k3/temple" element={<div><Header/><Templetable/></div>}/>
+       <Route path="/k3/temple/form" element={<div><Header/><Kissform/></div>}/>
+       <Route path="/k3/socials" element={<div><Header/><WelcomePage/></div>}/>
+>>>>>>> Stashed changes
       
        
        </Routes>

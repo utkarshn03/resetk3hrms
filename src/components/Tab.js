@@ -5,9 +5,9 @@ import styled from "styled-components";
 // import "./Nav.css";
 function Tab() {
   return (
-    <Wrapper className="bg-dark bg-opacity-25 py-5">
+    <Wrapper className="bg-dark bg-opacity-25 py-2">
      
-        <div className="container-fluid d-flex  justify-content-center flex-wrap"> 
+        <div className=" bg-white rounded-4 p-4 mb-3 container-fluid d-flex  justify-content-center "> 
         
           {/* <button
             className="navbar-toggler"
@@ -21,7 +21,7 @@ function Tab() {
             <span className="navbar-toggler-icon"></span>
           </button> */}
            
-            <ul className="nav me-auto">
+            <ul className="nav me-auto d-flex  justify-content-around flex-wrap align-items-center">
               <li className="nav-item">
               <a
                   href="/k3/home"
@@ -103,12 +103,12 @@ const Wrapper= styled.div`
      
      width:100%;
      box-sizing:border-box;
-     padding: 1rem;
+     
 
      div{
-      border-radius:20%;
-      background-color: white;
-      display:flex;
-      flex-direction;
+      width:80%;
+     }
+     a{
+      font-size:1rem
      }
 `
