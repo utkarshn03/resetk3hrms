@@ -1,11 +1,4 @@
 import React, { useState } from "react";
-// import Button from 'react-bootstrap/Button';
-// import Col from 'react-bootstrap/Col';
-// import Form from 'react-bootstrap/Form';
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import Row from 'react-bootstrap/Row';
-
-// import Container from 'react-bootstrap/Container';
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 const { ipapi } = require("../config.json");
@@ -64,6 +57,7 @@ const Kiitform = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
+    props.showAlert("Form has been Submitted", "success");
     sendRequest().then(() => alert(inputs)); //to meghna
   };
 

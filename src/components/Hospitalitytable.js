@@ -10,35 +10,9 @@ const Hospitalitytable = () => {
   const [dataTable, setDataTable] = useState([]);
   console.log(dataTable);
 
-/*   const Table = ({ data, column }) => {
-    return (
-      <table class="table table-hover table-responsive-sm" id="admsearch">
-        <thead>
-          <tr>
-            {column.map((item, index) => (
-              <TableHeadItem item={item} />
-            ))}
-          </tr>
-        </thead>
-        <tbody class="table-group-divider">
-          {data.map((item, index) => (
-            <TableRow item={item} column={column} />
-          ))}
-        </tbody>
-        <tfoot class="table-group-divider">
-          <tr>
-            {column.map((item, index) => (
-              <TableHeadItem item={item} />
-            ))}
-          </tr>
-        </tfoot>
-      </table>
-    );
-  }; */
-
   const Table = ({ data, column }) => {
     return (
-      <table class="table table-hover table-responsive-sm" id="admsearch">
+      <table className="table table-hover table-responsive-sm" id="admsearch">
         <thead>
           <tr>
             {column.map((item, index) => (
@@ -46,12 +20,12 @@ const Hospitalitytable = () => {
             ))}
           </tr>
         </thead>
-        <tbody class="table-group-divider">
+        <tbody className="table-group-divider">
           {data.map((item, index) => (
             <TableRow item={item} column={column} />
           ))}
         </tbody>
-        <tfoot class="table-group-divider">
+        <tfoot className="table-group-divider">
           <tr>
             {column.map((item, index) => (
               <TableHeadItem item={item} />
@@ -97,7 +71,7 @@ const Hospitalitytable = () => {
   ];
 
   return (
-    <div class="bg-secondary bg-opacity-10 py-5">
+    <div className="bg-secondary bg-opacity-10 py-5">
       <div className="py-5">
         <div className="container">
           <div className="row">
