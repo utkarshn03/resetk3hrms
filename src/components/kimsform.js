@@ -9,7 +9,9 @@ import axios from 'axios';
 const ipapi = require('../config.json');
  
 const Kimsform = () => {
-  
+
+    document.title="K3hrms · Kimsform";
+
     const [inputs, setInputs] = useState({
         eid: "3478g",
         

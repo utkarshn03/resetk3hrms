@@ -19,6 +19,8 @@ const options = [
 
 const Kissform = () => {
 
+  document.title="K3hrms · Kissform";
+
     // const [dataTable, setDataTable] = useState([]);
     // console.log(dataTable);
   

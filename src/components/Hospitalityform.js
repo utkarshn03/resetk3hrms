@@ -10,6 +10,9 @@ import dayjs from "dayjs";
 const ipapi = require("../config.json");
 
 const Hospitalityform = () => {
+
+  document.title="K3hrms · Hospitality";
+
   const [inputs, setInputs] = useState({
     eid: "3478g",
     purpose: "",

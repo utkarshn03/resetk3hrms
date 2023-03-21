@@ -3,7 +3,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 const { ipapi } = require("../config.json");
 
-const Kiitform = () => {
+function Kiitform (props) {
+
+  document.title="K3hrms · Kiitform";
   
   const [inputs, setInputs] = useState({
     eid: "3478g",
@@ -55,10 +57,11 @@ const Kiitform = () => {
   };
 
   const handleSubmit = (e) => {
+    
+    
     e.preventDefault();
     console.log(inputs);
-    props.showAlert("Form has been Submitted", "success");
-    sendRequest().then(() => alert(inputs)); //to meghna
+    sendRequest().then(() => props.showAlert("Form has been submitted successfully", "success")); //to meghna
   };
 
   return (

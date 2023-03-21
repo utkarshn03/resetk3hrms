@@ -1,17 +1,13 @@
-import React, {useState, useEffect} from "react";
-// import Button from 'react-bootstrap/Button';
-// import Col from 'react-bootstrap/Col';
-// import Form from 'react-bootstrap/Form';
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import Row from 'react-bootstrap/Row';
-
-// import Container from 'react-bootstrap/Container';
+import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import dayjs from "dayjs";
 const ipapi = require('../config.json');
 
 const Templeform = () => {
+
+  document.title="K3hrms · Templeform";
+
   // const [validated, setValidated] = useState([]);
 
   const [inputs, setInputs] = useState({

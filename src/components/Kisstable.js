@@ -5,6 +5,9 @@ const { ipapi } = require("../config.json");
 // import kiittable from "";
 
 const Kisstable = () => {
+
+  document.title="K3hrms · Kiss";
+
   const [dataTable, setDataTable] = useState([]);
   console.log(dataTable);
 

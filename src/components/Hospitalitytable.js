@@ -6,7 +6,10 @@ const ExpanddedComponent = ({data}) => <pre>{JSON.stringify(data, null, 2)}</pre
 
 // import kiittable from "";
 
-const Hospitalitytable = () => {
+const Hospitalitytable = (props) => {
+
+  document.title="K3hrms · Hospitality";
+
   const [dataTable, setDataTable] = useState([]);
   console.log(dataTable);
 

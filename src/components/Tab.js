@@ -8,6 +8,7 @@ function Tab() {
     <Wrapper className="bg-dark bg-opacity-25 py-2">
      
         <div className=" bg-white rounded-4 p-4 mb-3 container-fluid d-flex  justify-content-center "> 
+        <div className="row">
         
           {/* <button
             className="navbar-toggler"
@@ -21,42 +22,48 @@ function Tab() {
             <span className="navbar-toggler-icon"></span>
           </button> */}
            
-            <ul className="nav me-auto d-flex  justify-content-around flex-wrap align-items-center">
+            <ul className="nav me-auto d-flex  justify-content-around flex-wrap align-items-center fs-3">
               <li className="nav-item">
               <a
                   href="/k3/home"
-                  className="nav-link nav-brand link-dark px-4 active"
+                  className="nav-link nav-brand link-dark px-4 active fs-5"
                   aria-current="page"
                 >
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/k3/kiit" className="nav-link link-dark px-3">
+                <a href="/k3/kiit" className="nav-link link-dark px-3 align-items-center fs-5">
                   Kiit
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/k3/kims" className="nav-link link-dark px-3">
+                <a href="/k3/kims" className="nav-link link-dark px-3 align-items-center fs-5">
                   Kims
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/k3/kiss" className="nav-link link-dark px-3">
+                <a href="/k3/kiss" className="nav-link link-dark px-3 align-items-center fs-5">
                   Kiss
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/k3/temple" className="nav-link link-dark px-3">
+                <a href="/k3/temple" className="nav-link link-dark px-3 align-items-center fs-5">
                   Temple
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/k3/hospitality" className="nav-link link-dark px-3">
+                <a href="/k3/hospitality" className="nav-link link-dark px-3 align-text-center fs-5">
                   Hospitality
                 </a>
               </li>
+              <li className="nav-item">
+                <a href="/k3/" className="nav-link link-dark px-3 align-text-center fs-5">
+                  Social Media
+                </a>
+              </li>
             </ul>
+            </div>
             </div>
             {/* <ul className="nav">
               <li className="nav-item">
@@ -68,30 +75,7 @@ function Tab() {
           
         
     
-      {/* <div>
-        {/* <img src={logo} height="50px" width="80px" /> 
-      </div> */}
-      {/* <div className="list">
-        <Link to="/k3/Kiit" style={{ color: "black" }}>
-          Kiit
-        </Link>
-        <Link to="/k3/Kiims" style={{ color: "black" }}>
-          Kims
-        </Link>
-        <Link to="/k3/Kiss" style={{ color: "black" }}>
-          Kiss
-        </Link>
-        <Link to="/k3/Hospitality" style={{ color: "black" }}>
-          Hospitality
-        </Link>
-        <Link to="/k3/Temple" style={{ color: "black" }}>
-          Temple Trust
-        </Link>
-        <Link to="/k3/Socials" style={{ color: "black" }}>
-          Social Media
-        </Link>
-      </div> */}
-      {/* <button className="kiit-btn">logout</button> */}
+      
     </Wrapper>
   );
 }
