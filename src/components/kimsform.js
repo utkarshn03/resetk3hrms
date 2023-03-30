@@ -59,7 +59,6 @@ const Kimsform = () => {
         //avail_date=newValuetime;
       };
 
-
   return (
     <div>
       <div className="container">
@@ -171,6 +170,7 @@ const Kimsform = () => {
                     id="inputGroupFile01"
                   />
                 </div>
+               
               </div>
             </div>
           </div>
