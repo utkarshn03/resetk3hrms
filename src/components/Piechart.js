@@ -28,10 +28,15 @@ const data = {
     },
   ],
 };
+
+const h1style = {border: '2px solid green'}
+const piestyle = {height: '100px', width: '100px'}
+
 const PieChart = () => {
   return (
     <div>
-      <Doughnut data={data} />
+        <h1 style={h1style}>Test h1</h1>
+        <Doughnut style={piestyle} data={data}></Doughnut>
     </div>
   );
 };
