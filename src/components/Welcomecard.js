@@ -1,5 +1,5 @@
 import React from 'react'
-import PieChart from './Piechart.js';
+import PieChart from './Doughnutchart.js';
 import Monthend from './Monthend.js';
 
 function Welcomecard() {

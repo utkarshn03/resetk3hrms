@@ -9,7 +9,11 @@ import "bootstrap/dist/css/bootstrap.css";
 //     .then(data => getimage.src = data.primaryImage);
 
 const Employeedet = () => {
-  const id = "12344";
+  const employee = "12344";
+  const id = "123344"
+  
+
+
   return (
     <>
       <div className="bg-dark bg-opacity-25 py-2">
@@ -21,25 +25,22 @@ const Employeedet = () => {
                   <div className="row">
                     {/* <div className="col-sm ratio ratio-1x1"> */}
                     <div className="col-sm">
-                    <div class="ratio ratio-1x1">
-                      {/* <div>1x1</div> */}
-                      <div className="ratio ratio-1x1">
-                        <img
-                          src="https://i.imgur.com/HSllRGZ.jpeg"
-                          // width="5"
-                          // height="5"
-                          class="rounded float-center ratio ratio-1x1"
-                          alt=""
-                        />
+                      <div class="ratio ratio-1x1">
+                        {/* <div>1x1</div> */}
+                        <div className="ratio ratio-1x1">
+                          <img
+                            src={employee.img}
+                            // width="5"
+                            // height="5"
+                            class="rounded float-center ratio ratio-1x1"
+                            alt=""
+                          />
+                        </div>
                       </div>
-                    </div>  
-                      
-                      
                     </div>
                     {/* <div class="d-flex" style="height: 200px;">
                       <div class="vr"></div>
                     </div> */}
-                    
 
                     <div className="col-sm">
                       <div className="mb-3">
@@ -56,7 +57,7 @@ const Employeedet = () => {
                       </div>
                       <a
                         className="text-muted"
-                        href="https://twitter.com/KIITUniversity"
+                        href={employee.twitter}
                       >
                         <svg
                           fill="#000000"
@@ -72,7 +73,7 @@ const Employeedet = () => {
                       &ensp; &ensp; &ensp;
                       <a
                         className="text-muted"
-                        href="https://www.instagram.com/KIITUniversity/"
+                        href={employee.instagram}
                       >
                         <svg width="28px" height="28px" viewBox="0 0 20 20">
                           <rect x="0" fill="none" width="20" height="20" />
@@ -85,7 +86,7 @@ const Employeedet = () => {
                       &ensp; &ensp; &ensp;
                       <a
                         className="text-muted"
-                        href="https://www.facebook.com/KIITUniversity"
+                        href={employee.facebook}
                       >
                         <svg
                           fill="#000000"
@@ -101,7 +102,7 @@ const Employeedet = () => {
                       &ensp; &ensp; &ensp;
                       <a
                         className="text-muted"
-                        href="https://www.facebook.com/KIITUniversity"
+                        href={employee.youtube}
                       >
                         <svg
                           fill="#000000"
@@ -118,7 +119,20 @@ const Employeedet = () => {
                         </svg>
                       </a>
                     </div>
-                    <div className="col-sm"></div>
+                    <div className="col-sm">
+                      <div class="ratio ratio-1x1">
+                        {/* <div>1x1</div> */}
+                        <div className="ratio ratio-1x1">
+                          <img
+                            src={employee.qr}
+                            // width="5"
+                            // height="5"
+                            class="rounded float-center ratio ratio-1x1"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

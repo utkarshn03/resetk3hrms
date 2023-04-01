@@ -7,7 +7,7 @@ function Tab() {
   return (
     <Wrapper className="bg-dark bg-opacity-25 py-2">
      
-        <div className=" bg-white rounded-4 p-4 mb-3 container-fluid d-flex  justify-content-center "> 
+        <div className=" bg-white rounded-4  mb-3 container-fluid d-flex  justify-content-center "> 
         <div className="row">
         
           {/* <button

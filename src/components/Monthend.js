@@ -1,13 +1,49 @@
-import React from 'react'
+import React from "react";
+import Table from 'react-bootstrap/Table';
 
 function Monthend() {
+  const tablestyle = {};
+
   return (
     <>
-        <div>
-            Monthend
-        </div>
+      <div>
+        <Table striped>
+          <thead>
+            <tr>
+              <th>Department</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>KIIT</td>
+              <td>23445</td>
+            </tr>
+            <tr>
+              <td>KIMS</td>
+              <td>45638</td>
+            </tr>
+            <tr>
+              <td>KISS</td>
+              <td>45638</td>
+            </tr>
+            <tr>
+              <td>Temple</td>
+              <td>45638</td>
+            </tr>
+            <tr>
+              <td>Hospitality</td>
+              <td>45638</td>
+            </tr>
+            <tr>
+              <td>Social Media</td>
+              <td>45638</td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
     </>
-  )
+  );
 }
 
 export default Monthend;
