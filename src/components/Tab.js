@@ -5,7 +5,7 @@ import styled from "styled-components";
 // import "./Nav.css";
 function Tab() {
   return (
-    <Wrapper className="bg-dark bg-opacity-25 py-2">
+    <Wrapper className="py-22">
      
         <div className=" bg-white rounded-4  mb-3 container-fluid d-flex  justify-content-center "> 
         <div className="row">

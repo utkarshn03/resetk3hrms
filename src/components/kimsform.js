@@ -5,59 +5,91 @@ import dayjs from "dayjs";
 
 // import Container from 'react-bootstrap/Container';
 import "bootstrap/dist/css/bootstrap.css";
-import axios from 'axios';
-const ipapi = require('../config.json');
- 
+import axios from "axios";
+const ipapi = require("../config.json");
+
 const Kimsform = () => {
+  document.title = "K3hrms · Kimsform";
 
-    document.title="K3hrms · Kimsform";
+  const [inputs, setInputs] = useState({
+    eid: "3478g",
+  });
 
-    const [inputs, setInputs] = useState({
-        eid: "3478g",
-        
-      });
-    
-      const apikimsform = ipapi+"/api/kims/adddata";
-    
-      const handleChange = (e) => {
-        setInputs((prev) => ({
-          ...prev,
-          [e.target.name]: e.target.value,
-        }));
-        console.log(e.target.value);
-      };
-    
-      const sendRequest = async () => {
-        const res = await axios
-          .post(apikimsform, {
-            eid: inputs.eid,
-            
-          })
-          .catch((err) => console.log(err));
-        const data = await res.data;
-        return data;
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(inputs);
-        sendRequest().then(() => alert(inputs)); //to meghna
-      };
+  const apikimsform = ipapi + "/api/kims/adddata";
 
-      const [valuetime, setValuetime] = React.useState(
-        dayjs().format("YYYY-MM-DD"),
-      );
-    
-      const handleChangetime = (newValuetime) => {
-        console.log(newValuetime)
-        const time = new Date(newValuetime.target.value);
-        console.log(time)
-        var t = new Date(time.getTime() - time.getTimezoneOffset() * 60000).toISOString();
-        t = dayjs(t).format("YYYY-MM-DD");
-        setValuetime(t);
-        console.log(t);
-        //avail_date=newValuetime;
-      };
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
+  const handleFileSelect = (event) => {
+    setSelectedFiles([...selectedFiles, ...event.target.files]);
+  }
+
+  const handleFileDelete = (file) => {
+    setSelectedFiles(selectedFiles.filter((f) => f !== file));
+  }
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+    console.log(e.target.value);
+  };
+
+  const sendRequest = async () => {
+    const res = await axios
+      .post(apikimsform, {
+        eid: inputs.eid,
+      })
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    return data;
+  };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(inputs);
+  //   sendRequest().then(() => alert(inputs)); //to meghna
+  // };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    for (let i = 0; i < selectedFiles.length; i++) {
+      formData.append('images', selectedFiles[i]);
+    }
+    fetch('/api/submit-form', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Form submitted successfully!');
+      } else {
+        console.error('Form submission failed.');
+      }
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+    });
+  }
+
+
+  const [valuetime, setValuetime] = React.useState(
+    dayjs().format("YYYY-MM-DD")
+  );
+
+  const handleChangetime = (newValuetime) => {
+    console.log(newValuetime);
+    const time = new Date(newValuetime.target.value);
+    console.log(time);
+    var t = new Date(
+      time.getTime() - time.getTimezoneOffset() * 60000
+    ).toISOString();
+    t = dayjs(t).format("YYYY-MM-DD");
+    setValuetime(t);
+    console.log(t);
+    //avail_date=newValuetime;
+  };
 
   return (
     <div>
@@ -99,7 +131,9 @@ const Kimsform = () => {
               <div className="row">
                 <div className="col-sm">
                   <div className="mb-3">
-                    <label for="dobfloatingInput">Date of Purchase/Service Avail</label>
+                    <label for="dobfloatingInput">
+                      Date of Purchase/Service Avail
+                    </label>
                     <Form.Control
                       type="date"
                       className="form-control"
@@ -164,25 +198,47 @@ const Kimsform = () => {
                   <label className="input-group-text" for="inputGroupFile01">
                     Upload
                   </label>
-                  <input
-                    type="file"
-                    className="form-control"
-                    id="inputGroupFile01"
-                  />
+                  <input type="file" multiple onChange={handleFileSelect} />
+                  <div
+                    style={{
+                      marginLeft: "20px",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    {selectedFiles.map((file, index) => (
+                      <div key={file.name}>
+                        <img
+                          src={URL.createObjectURL(file)}
+                          alt={file.name}
+                          style={{
+                            width: "100px",
+                            height: "100px",
+                            objectFit: "cover",
+                          }}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleFileDelete(file)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-               
               </div>
             </div>
           </div>
           {/* <!----><!----><!----> */}
           <div className="mt-3 mb-3">
             <div className="border rounded-4 p-4 text-end">
-                <button type="reset" className="btn btn-danger btn">
+              <button type="reset" className="btn btn-danger btn">
                 Cancel
-                </button>
-                <button type="submit" className="btn btn-success btn">
+              </button>
+              <button type="submit" className="btn btn-success btn">
                 Add
-                </button>
+              </button>
             </div>
           </div>
         </form>

@@ -12,7 +12,7 @@ const data = {
         '#987b5a',
         '#2e3192',
         '#1be1f8',
-        '#f5f9f4',
+        '#d4ebd0',
       ],
       data: [12, 10, 5, 2, 20],
     },
@@ -25,9 +25,9 @@ const piestyle = {height: '50px', width: '50px'}
 const PieChart = () => {
   return (
     <>
-      <div style={h1style}>
+      <div>
         {/* <h1>Test h1</h1> */}
-        <Doughnut style={piestyle} data={data}></Doughnut>
+        <Doughnut data={data}></Doughnut>
       </div>
     </>
   );
