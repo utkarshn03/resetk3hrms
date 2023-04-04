@@ -26,7 +26,7 @@ export default function Entry({setUser}) {
   return (
     <div className='main-container'>
         <div className='form-header'>
-           <button className='hbtn' onClick={toggleItem}>{curr}</button>
+           {/* <button className='hbtn' onClick={toggleItem}>{curr}</button> */}
         </div>
         <ResponsiveFlex className='form-content'>
               <FlexContent className='entry-name'>
@@ -35,7 +35,7 @@ export default function Entry({setUser}) {
                  Welcome to Kiit HRMS 
               </FlexContent>
               <FlexContent>
-                 {curr=="login"? <Registration />:<Login setUser={setUser}/>}
+                 <Login setUser={setUser}/>
               </FlexContent>
         </ResponsiveFlex>
     </div>

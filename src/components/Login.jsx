@@ -1,31 +1,99 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+
 import {FormContainer, Heading,FormContent,FormHeader } from './styled.js';
-
-
 import axios from 'axios';
-const ipapi = require('../config.json');
+
+const { ipapi } = require("../config.json");
+
 export default function Login({setUser}) {
   
-  const [email,setEmail]= useState('');
-  const [password, setPassword]= useState('');
+//   const [email,setEmail]= useState('');
+//   const [password, setPassword]= useState('');
 
-  const navigate= useNavigate();
+//   const navigate= useNavigate();
 
-  const handleSubmit= async(e)=>{
-      e.preventDefault();
-      console.log("yesa")
-      if(!email||!password) return;
-      setUser({email:email, password:password});
-      console.log("email",email)
-      navigate("/k3/kiit")
-  };
-  const onChangeEmail=(e)=>{
-    setEmail({[e.target.name] : e.target.value})
+//   const apilogin=  ipapi+"/api/user/login";
+
+//   const handleSubmit= async(e)=>{
+//       e.preventDefault();
+//       console.log("yesa")
+//       // if(!email||!password) return;
+//       //   console.log("Internal");
+//           const res = await axios.post(apilogin,
+//             {
+//                 username: inputs.username,
+//                 password: inputs.password,
+//             }
+//         ).catch((err) => console.log(err));
+//         const data = await res.data;
+//         // return data;
+//         console.log(data);
+
+//       console.log("email",email)
+      
+//   };
+//   const onChangeEmail=(e)=>{
+//     setEmail({[e.target.name] : e.target.value})
+//   }
+//   const onChangePassword=(e)=>{
+//     setPassword({...password, [e.target.name] : e.target.value})
+//   }
+
+//   const [inputs, setInputs] = useState({
+//     username: "",
+//     password: "",
+// });
+
+// const handleChange = (e) => {
+//     setInputs(prev => ({
+//         ...prev,
+//         [e.target.name]: e.target.value
+//     }
+//     ))
+// };
+
+
+
+// const handleSubmit = (e) => {
+//     e.preventDefault();
+//     // console.log(inputs);
+//     sendRequest().then(() => history("/user"));
+// };
+
+const apilogin=  ipapi+"/api/user/login"
+
+
+const [inputs, setInputs] = useState({
+  username: "",
+  password: "",
+});
+
+const handleChange = (e) => {
+  setInputs(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
   }
-  const onChangePassword=(e)=>{
-    setPassword({...password, [e.target.name] : e.target.value})
-  }
+  ))
+};
+
+const sendRequest = async () => {
+  const res = await axios.post(apilogin,
+      {
+          username: inputs.username,
+          password: inputs.password,
+      }
+  ).catch((err) => console.log(err));
+  const data = await res.data;
+  return data;
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // console.log(inputs);
+  sendRequest().then(() => console.log("jeet ki khusbu"));
+};
+
   return (
     <FormContainer>
     <Heading>
@@ -33,12 +101,12 @@ export default function Login({setUser}) {
     </Heading>
     <FormContent onSubmit={handleSubmit}>
        <label htmlFor='email'>Email: </label>
-       <input type="email"
+       <input type="text"
               placeholder='youremail@gmail.com'
               name='email' 
               id ="email" 
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleChange}
               />
         <label>Password: </label>
         <input type="password"
@@ -46,7 +114,7 @@ export default function Login({setUser}) {
               name='password' 
               id ="password" 
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleChange}
               />
                 <button className='submit-btn'>submit</button>
     </FormContent>

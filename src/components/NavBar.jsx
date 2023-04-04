@@ -10,11 +10,11 @@ function NavBar() {
       <div className="container d-flex flex-wrap justify-content-center">
         <a href="/" className="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
           
-        <img src="https://preparmy.com/wp-content/uploads/2017/04/KIIT_logo.svg_.png" href="https://www.kiit.ac.in" alt="mdo" width="32" height="32" className="rounded-circle"/>
+        <img src="https://preparmy.com/wp-content/uploads/2017/04/KIIT_logo.svg_.png" href="https://www.kiit.ac.in" alt="mdo" width="48" height="48" className="rounded-circle"/>
         &ensp;
-        <img src="https://th.bing.com/th/id/OIP.UX4yoFTu2uE5qDkGKg6oTgHaGj?pid=ImgDet&rs=1" href="" alt="mdo" width="32" height="32" className="rounded-circle"/>
+        <img src="https://th.bing.com/th/id/OIP.UX4yoFTu2uE5qDkGKg6oTgHaGj?pid=ImgDet&rs=1" href="" alt="mdo" width="48" height="48" className="rounded-circle"/>
         &ensp;
-        <img src="https://th.bing.com/th/id/OIP.9abchmb6iWO-wjJhG0dGUwHaHa?pid=ImgDet&rs=1" href="https://kims.kiit.ac.in/" alt="mdo" width="32" height="32" className="rounded-circle"/>
+        <img src="https://th.bing.com/th/id/OIP.9abchmb6iWO-wjJhG0dGUwHaHa?pid=ImgDet&rs=1" href="https://kims.kiit.ac.in/" alt="mdo" width="48" height="48" className="rounded-circle"/>
 
         </a>
         <ul className="nav">

@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 const { ipapi } = require("../config.json");
 
+// 214x214
+
 function Kiitform (props) {
 
   document.title="K3hrms · Kiitform";
@@ -61,7 +63,7 @@ function Kiitform (props) {
     
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then(() => props.showAlert("Form has been submitted successfully", "success")); //to meghna
+    sendRequest().then(() => console.log("jeet gaye")); //to meghna
   };
 
   return (

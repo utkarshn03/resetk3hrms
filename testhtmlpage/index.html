@@ -9,7 +9,7 @@
     <script type="text/javascript">
         function createCookie(fieldname, fieldvalue, expiry) {
             var date = new Date();
-            date.setTime(date.getTime()+ (expiry*24*60*60*1000));
+            date.setTime(date.getTime()+ (expiry*24*60*1000));
             var expires = "expires=" + date.toGMTString();
             document.cookie = fieldname + "=" + fieldvalue
                             + ";" + expires + ";path=/";
@@ -36,13 +36,16 @@
   
         function runApp() {
             var user = readCookie("username");
-            if(user != ""){
-                alert("Hello "+user);
-            }else{
+            if(!user){
                 user=prompt("Enter your name: ", "");
                 if(user!= "" && user!=null){
                     createCookie("username", user, 30);
                 }
+                
+            }else{
+                
+
+                alert("Hello "+user);
             }
         }
   

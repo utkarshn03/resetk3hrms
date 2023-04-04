@@ -6,6 +6,8 @@ function Monthend() {
 
   return (
     <>
+
+      <h4 className="text-success mb-0">Month Total Benefit</h4>
       <div>
         <Table striped>
           <thead>
