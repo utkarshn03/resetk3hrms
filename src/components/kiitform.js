@@ -246,6 +246,7 @@ function Kiitform (props) {
                 <div className="col-sm">
                   <div className="mb-3">
                     <label for="mobilefloatingInput">Moblie no.</label>
+                    
                     <input
                       type="tel"
                       maxlength="10"
@@ -292,6 +293,7 @@ function Kiitform (props) {
             </div>
           </div>
           {/* <!----><!----><!----> */}
+
           <div className="mt-3 mb-3">
             <div className="border rounded-4 p-4 text-end">
               <button type="reset" className="btn btn-danger btn">
@@ -302,6 +304,7 @@ function Kiitform (props) {
               </button>
             </div>
           </div>
+
         </form>
       </div>
     </div>

@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+
 // import { Link } from "react-router-dom";
 // import Kimsform from './kimsform';
-// import "./Nav.css";
+import "../App.css";
 function Tab() {
+
   return (
     <Wrapper className="py-22">
      
@@ -87,12 +89,18 @@ const Wrapper= styled.div`
      
      width:100%;
      box-sizing:border-box;
-     
+     padding:10px;
 
      div{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       width:80%;
      }
      a{
-      font-size:1rem
+      font-size:1.5rem !important;
+      color: green !important;
+      font-weight: 300;
+      font-family: 'Poppins', sans-serif;
      }
 `
