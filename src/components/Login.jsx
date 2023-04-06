@@ -74,7 +74,7 @@ const navigate= useNavigate();
 const [inputs, setInputs] = useState({
 
   username: "",
-  email:"",
+  password:""
 })
 
 const handleChange = (e) => {
@@ -177,7 +177,7 @@ const handleSubmit = (e) => {
               value={inputs.password}
               onChange={handleChange}
               />
-                <button className='submit-btn'>Log In</button>
+                <button className='submit-btn' onClick={runApp}>Log In</button>
     </FormContent>
   </FormContainer>
   )
