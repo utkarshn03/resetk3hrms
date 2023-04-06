@@ -57,7 +57,7 @@ const Kimsform = () => {
     for (let i = 0; i < selectedFiles.length; i++) {
       formData.append("images", selectedFiles[i]);
     }
-    fetch("/api/submit-form", {
+    axios("/api/submit-form", {
       method: "POST",
       body: formData,
     })
@@ -65,7 +65,7 @@ const Kimsform = () => {
         if (response.ok) {
           console.log("Form submitted successfully!");
         } else {
-          console.error("Form submission failed.");
+          console.error("Form submission failed successfully");
         }
       })
       .catch((error) => {
@@ -92,172 +92,6 @@ const Kimsform = () => {
 
   return (
     <>
-      <div className="bg-black bg-opacity-25 py-5">
-        <div className="conatiner">
-          <div className=" col d-flex align-items-strech">
-            <div className="bg-white rounded-4 p-5 felx-fill">
-              
-                <h4 className="text-success mb-0">Patient Registration</h4>
-                <p className="mb-3">
-                  <small className="text-muted">Add Patient</small>
-                </p>
-                <form onSubmit={handleSubmit}>
-                  <div className="mt-3 mb-3">
-                    <div className="border rounded-4 p-4">
-                      <h5 className="mb-4">Basic Details</h5>
-                      <div className="row">
-                        <div className="col-sm">
-                          <div className="mb-3">
-                            <label for="admreffloatingInput">Uhid No.</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="uhidfloatingInput"
-                              required
-                              onChange={handleChange}
-                            />
-                          </div>
-                        </div>
-                        <div className="col-sm">
-                          <div className="mb-3">
-                            <label for="fnamefloatingInput">Patient Name</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="fnamefloatingInput"
-                              required
-                              onChange={handleChange}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-sm">
-                          <div className="mb-3">
-                            <label for="dobfloatingInput">
-                              Date of Purchase/Service Avail
-                            </label>
-                            <Form.Control
-                              type="date"
-                              className="form-control"
-                              /* id="dobfloatingInput" */
-                              id="start"
-                              name="valuetime"
-                              /* disabledFuture="true" */
-                              max={moment().format("YYYY-MM-DD")}
-                              inputFormat="YYYY-MM-DD"
-                              disabled
-                              value={valuetime}
-                              onChange={handleChangetime}
-                            />
-                          </div>
-                        </div>
-                        <div className="col-sm">
-                          <div className="mb-3">
-                            <label for="relationfloatingInput">Relation</label>
-                            <select className="form-select" required>
-                              <option value="">-- Select Relation --</option>
-                              <option value="Self">Self</option>
-                              <option value="Friend">Friend</option>
-                              <option value="Relative">Relative</option>
-                              <option value="Other">Other</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-sm">
-                          <div className="mb-3">
-                            <label for="mobilefloatingInput">Moblie no.</label>
-                            <input
-                              type="tel"
-                              maxlength="10"
-                              pattern="[6-9]{1}[0-9]{9}"
-                              className="form-control"
-                              id="mobilefloatingInput"
-                              required
-                              onChange={handleChange}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-sm">
-                          <div className="input-group mb-3">
-                            <span className="input-group-text">₹</span>
-
-                            <input
-                              type="text"
-                              className="form-control"
-                              aria-label="Amount (to the nearest dollar)"
-                              placeholder="Amount paid"
-                              onChange={handleChange}
-                              required
-                            />
-                            <span className="input-group-text">.00</span>
-                          </div>
-                        </div>
-                        <div className="input-group mb-3">
-                          <label
-                            className="input-group-text"
-                            for="inputGroupFile01"
-                          >
-                            Upload
-                          </label>
-                          <input
-                            type="file"
-                            multiple
-                            onChange={handleFileSelect}
-                          />
-                          <div
-                            style={{
-                              marginLeft: "20px",
-                              display: "flex",
-                              flexDirection: "column",
-                            }}
-                          >
-                            {selectedFiles.map((file, index) => (
-                              <div key={file.name}>
-                                <img
-                                  src={URL.createObjectURL(file)}
-                                  alt={file.name}
-                                  style={{
-                                    width: "100px",
-                                    height: "100px",
-                                    objectFit: "cover",
-                                  }}
-                                />
-                                <button
-                                  type="button"
-                                  onClick={() => handleFileDelete(file)}
-                                >
-                                  Delete
-                                </button>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!----><!----><!----> */}
-                  <div className="mt-3 mb-3">
-                    <div className="border rounded-4 p-4 text-end">
-                      <button type="reset" className="btn btn-danger btn">
-                        Cancel
-                      </button>
-                      <button type="submit" className="btn btn-success btn">
-                        Add
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div>
         <div className="container">
           <h4 className="text-success mb-0">Patient Registration</h4>

@@ -6,22 +6,22 @@ function NavBar() {
   return (
     <div><div >
   
-    <header style={headstyle} className="py-2 border-bottom">
+    <header style={headstyle} className="py-1 border-bottom">
       <div className="container d-flex flex-wrap justify-content-center">
         <a href="/" className="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
           
-        <img src="https://preparmy.com/wp-content/uploads/2017/04/KIIT_logo.svg_.png" href="https://www.kiit.ac.in" alt="mdo" width="52" height="52" className="rounded-circle"/>
+        <img src="https://mma.prnewswire.com/media/871544/KIIT_Logo.jpg" href="https://www.kiit.ac.in" alt="mdo" width="48" height="48" className="rounded-circle"/>
         &ensp;
-        <img src="https://th.bing.com/th/id/OIP.UX4yoFTu2uE5qDkGKg6oTgHaGj?pid=ImgDet&rs=1" href="" alt="mdo" width="52" height="52" className="rounded-circle"/>
+        <img src="https://th.bing.com/th/id/OIP.UX4yoFTu2uE5qDkGKg6oTgHaGj?pid=ImgDet&rs=1" href="" alt="mdo" width="48" height="48" className="rounded-circle"/>
         &ensp;
-        <img src="https://th.bing.com/th/id/OIP.9abchmb6iWO-wjJhG0dGUwHaHa?pid=ImgDet&rs=1" href="https://kims.kiit.ac.in/" alt="mdo" width="52" height="52" className="rounded-circle"/>
+        <img src="https://th.bing.com/th/id/OIP.9abchmb6iWO-wjJhG0dGUwHaHa?pid=ImgDet&rs=1" href="https://kims.kiit.ac.in/" alt="mdo" width="48" height="48" className="rounded-circle"/>
 
         </a>
         <ul className="nav">
-        <li className="nav-item"><a href="/" className="nav-link link-dark px-3 fs-4">Welcome </a></li>
+        <li className="nav-item"><a className="nav-link link-dark px-4 .fs-1 text">Welcome </a></li>
         <div className="dropdown text-end">
           <a href="/" className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="52" height="52" className="rounded-circle"/>
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle"/>
           </a>
           <ul className="dropdown-menu text-small">
             <li><a className="dropdown-item" href="/">View Report</a></li>

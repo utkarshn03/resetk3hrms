@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
-import {FormContainer, Heading,FormContent,FormHeader } from './styled.js';
+import {FormContainer, Heading,FormContent } from './styled.js';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const { ipapi } = require("../config.json");
 
@@ -61,14 +62,20 @@ export default function Login({setUser}) {
 //     sendRequest().then(() => history("/user"));
 // };
 
-const apilogin=  ipapi+"/api/user/login"
+const apilogin=  ipapi+"/api/user/login";
+
+var flag=0;
+
+var employeeid;
+
+const navigate= useNavigate();
 
 
 const [inputs, setInputs] = useState({
+
   username: "",
   email:"",
-  password: "",
-});
+})
 
 const handleChange = (e) => {
   setInputs(prev => ({
@@ -79,15 +86,66 @@ const handleChange = (e) => {
 };
 
 const sendRequest = async () => {
+  console.log(inputs.email,inputs.password);
+  employeeid = inputs.email;
   const res = await axios.post(apilogin,
       {
-          username: inputs.username,
+          username: inputs.email,
           password: inputs.password,
       }
   ).catch((err) => console.log(err));
   const data = await res.data;
-  return data;
+  flag=1;
+  return data;  
 };
+
+// flag=1;
+
+function createCookie(fieldname, fieldvalue, expiry) {
+  var date = new Date();
+  date.setTime(date.getTime()+ (expiry*24*60*1000));
+  var expires = "expires=" + date.toGMTString();
+  document.cookie = fieldname + "=" + fieldvalue
+                  + ";" + expires + ";path=/";
+}
+
+function readCookie(cname) {
+  var name = cname + "=";
+  var decoded_cookie = 
+      decodeURIComponent(document.cookie);
+  var carr = decoded_cookie.split(';');
+  for(var i=0; i<carr.length;i++){
+      var c = carr[i];
+      while(c.charAt(0)===' '){
+          c=c.substring(1);
+      }
+      if(c.indexOf(name) === 0) {
+          return c.substring(name.length, c.length);
+      }
+  }
+  return "";
+}
+
+function runApp() {
+  var eid = readCookie("username");
+  if(!eid){
+      eid=employeeid;
+      console.log(eid);
+      if(eid!==null){
+          createCookie("username", eid, 30);
+      }
+      
+  }else{    
+
+    navigate('/k3/home');
+
+  }
+}
+
+if(flag===1){
+  runApp();
+  
+}
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -98,14 +156,16 @@ const handleSubmit = (e) => {
   return (
     <FormContainer>
     <Heading>
-      User Login
+      Login In
     </Heading>
     <FormContent onSubmit={handleSubmit}>
        <label htmlFor='username'>username </label>
        <input type="text"
               placeholder='youremail@gmail.com'
+
               name='username' 
               id ="username" 
+
               value={inputs.email}
               onChange={handleChange}
               />
@@ -117,7 +177,7 @@ const handleSubmit = (e) => {
               value={inputs.password}
               onChange={handleChange}
               />
-                <button className='submit-btn'>login</button>
+                <button className='submit-btn'>Log In</button>
     </FormContent>
   </FormContainer>
   )

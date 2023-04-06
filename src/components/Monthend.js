@@ -37,10 +37,6 @@ function Monthend() {
               <td>Hospitality</td>
               <td>45638</td>
             </tr>
-            <tr>
-              <td>Social Media</td>
-              <td>45638</td>
-            </tr>
           </tbody>
         </Table>
       </div>

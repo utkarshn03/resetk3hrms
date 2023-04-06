@@ -17,6 +17,7 @@ import WelcomePage from "./pages/WelcomePage";
 import Entry from "./pages/Entry";
 import Header from "./components/Header";
 import Alert from "./components/Alert";
+import Socialmedia from "./components/Socialmediatask";
 
 //import Welcome from './components/Welcome';
 
@@ -60,6 +61,7 @@ function App() {
        <Route path="/k3/temple" element={<div><Header/><Templetable/></div>}/>
        <Route path="/k3/temple/form" element={<div><Header/><Alert alert={alert}/><Templeform/></div>}/>
        <Route path="/k3/socials" element={<div><Header/><WelcomePage/></div>}/>
+       <Route path="/k3/socialmedia" element={<div><Header/><Socialmedia/></div>}/>
       
        
        </Routes>

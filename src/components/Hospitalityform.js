@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 
 import dayjs from "dayjs";
-const ipapi = require("../config.json");
+const {ipapi} = require("../config.json");
 
 const Hospitalityform = () => {
 
@@ -21,6 +21,7 @@ const Hospitalityform = () => {
   });
 
   const apihospitalityform = ipapi + "/api/hospitality/add";
+  console.log(apihospitalityform);
 
   const handleChange = (e) => {
     setInputs((prev) => ({
@@ -63,7 +64,7 @@ const [valuetime, setValuetime] = React.useState(
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then(() => alert(inputs)); //to meghna
+    sendRequest().then(() => console.log("looks good/")); //to meghna
   };
 
   return (

@@ -247,7 +247,7 @@ const Kissform = () => {
                     </tr>
                   </thead>
                   <tbody className="">
-                    {
+                    {/* {
                       entry.map((e)=>{
                         // <tr>
                         //   <td>{e.product_id}</td>
@@ -257,7 +257,7 @@ const Kissform = () => {
                         // </tr>
                         
                       })
-                    }
+                    } */}
                   </tbody>
                 </table>
               </div>
