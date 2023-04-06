@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Kissform from "./Kissform"
+import { Modal, Button } from "react-bootstrap";
 const { ipapi } = require("../config.json");
 
 // import kiittable from "";
@@ -65,7 +67,10 @@ const Kisstable = () => {
     { heading: "Department", value: "student_dep" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <div class="bg-secondary bg-opacity-10 py-5">
       <div className="py-5">
@@ -79,12 +84,31 @@ const Kisstable = () => {
                 <small className="text-muted"></small>
               </p>
             </div>
-            <div className="col-sm-auto">
-              <a href="/k3/kiss/form" className="btn btn-success mx-2">
+            <button className="col-sm-auto btn btn-success mx-2" variant="primary" onClick={handleShow}>
+              
                 Add Candidate Details
-              </a>
-            </div>
+            
+            </button>
           </div>
+          <Modal show={show} onHide={handleClose} size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Kissform/>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+
 
           <div className="row">
             <div className="col-sm">

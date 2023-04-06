@@ -66,6 +66,7 @@ const apilogin=  ipapi+"/api/user/login"
 
 const [inputs, setInputs] = useState({
   username: "",
+  email:"",
   password: "",
 });
 
@@ -97,15 +98,15 @@ const handleSubmit = (e) => {
   return (
     <FormContainer>
     <Heading>
-      SIGN IN
+      User Login
     </Heading>
     <FormContent onSubmit={handleSubmit}>
-       <label htmlFor='email'>Email: </label>
+       <label htmlFor='username'>username </label>
        <input type="text"
               placeholder='youremail@gmail.com'
-              name='email' 
-              id ="email" 
-              value={email}
+              name='username' 
+              id ="username" 
+              value={inputs.email}
               onChange={handleChange}
               />
         <label>Password: </label>
@@ -113,10 +114,10 @@ const handleSubmit = (e) => {
               placeholder='password'
               name='password' 
               id ="password" 
-              value={password}
+              value={inputs.password}
               onChange={handleChange}
               />
-                <button className='submit-btn'>submit</button>
+                <button className='submit-btn'>login</button>
     </FormContent>
   </FormContainer>
   )

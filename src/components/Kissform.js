@@ -255,7 +255,7 @@ const Kissform = () => {
                         //   <td>{e.quantity}</td>
                         //   <td>{e.price}</td>
                         // </tr>
-                        <TableRow 
+                        
                       })
                     }
                   </tbody>

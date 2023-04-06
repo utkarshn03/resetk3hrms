@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Modal, Button } from "react-bootstrap";
+import Kimsform from "./Kimsform";
 const { ipapi } = require("../config.json");
 
 // import kiittable from "";
@@ -50,7 +52,7 @@ const Kimstable = () => {
   const apikimstable = ipapi+"/api/kims/getdata";
 
   useEffect(() => {
-    axios(apikimstable)
+    axios.get(apikimstable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
   }, []);
