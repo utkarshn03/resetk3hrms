@@ -60,7 +60,7 @@ function Tab() {
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/k3/" className="nav-link link-dark px-3 align-text-center fs-5">
+                <a href="/k3/socialmedia" className="nav-link link-dark px-3 align-text-center fs-5">
                   Social Media
                 </a>
               </li>

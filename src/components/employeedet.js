@@ -61,14 +61,14 @@ function runApp() {
           <div className="row g-4">
             <div className="col-sm-3 d-flex align-items-strech mb-4 mt-5">
               <div className="bg-white shadow-lg rounded-4 p-4 flex-fill">
-                <div class="ratio ratio-1x1">
+                <div className="ratio ratio-1x1">
                   {/* <div>1x1</div> */}
                   <div className="ratio ratio-1x1">
                     <img
                       src="https://i.pinimg.com/564x/9d/5f/69/9d5f694dd71f71dae11ffb95981742cc.jpg"
                       // width="100"
                       // height="100"
-                      class="rounded float-center ratio ratio-1x1"
+                      className="rounded float-center ratio ratio-1x1"
                       alt=""
                     />
                   </div>
@@ -78,15 +78,15 @@ function runApp() {
             <div className="col-sm-4 d-flex align-items-stretch mb-4 mt-5">
               <div className="bg-white shadow-lg rounded-4 p-4 flex-fill">
                 <div className="mb-0">
-                  <small class="text-muted">Employee Id: </small>
+                  <small className="text-muted">Employee Id: </small>
                   <p className="mb-2">{id}</p>
-                  <small class="text-muted">Name: </small>
+                  <small className="text-muted">Name: </small>
                   <p className="mb-2">{id}</p>
-                  <small class="text-muted">Department: </small>
+                  <small className="text-muted">Department: </small>
                   <p className="mb-2">{id}</p>
-                  <small class="text-muted">Email: </small>
+                  <small className="text-muted">Email: </small>
                   <p className="mb-2">{id}</p>
-                  <small class="text-muted">Mobile: </small>
+                  <small className="text-muted">Mobile: </small>
                   <p className="mb-2">{id}</p>
                 </div>
                 
@@ -155,14 +155,14 @@ function runApp() {
             </div>
             <div className="col-sm-3 shadow-lg d-flex align-items-strech mb-4 mt-5">
               <div className="bg-white rounded-4 p-4 flex-fill">
-                <div class="ratio ratio-1x1">
+                <div className="ratio ratio-1x1">
                    
                   <div className="ratio ratio-1x1">
                     <img
                       src=""
                       // width="100"
                       // height="100"
-                      class="rounded float-center ratio ratio-1x1"
+                      className="rounded float-center ratio ratio-1x1"
                       alt=""
                     />
                   </div>
@@ -182,34 +182,34 @@ function runApp() {
                   <div className="row">
                     {/* <div className="col-sm ratio ratio-1x1"> 
                     <div className="col-sm">
-                      <div class="ratio ratio-1x1">
+                      <div className="ratio ratio-1x1">
                         {/* <div>1x1</div> 
                         <div className="ratio ratio-1x1">
                           <img
                             src={employee.img}
                             // width="5"
                             // height="5"
-                            class="rounded float-center ratio ratio-1x1"
+                            className="rounded float-center ratio ratio-1x1"
                             alt=""
                           />
                         </div>
                       </div>
                     </div>
-                    {/* <div class="d-flex" style="height: 200px;">
-                      <div class="vr"></div>
+                    {/* <div className="d-flex" style="height: 200px;">
+                      <div className="vr"></div>
                     </div> 
 
                     <div className="col-sm">
                       <div className="mb-3">
-                        <small class="text-muted">Employee Id: </small>
+                        <small className="text-muted">Employee Id: </small>
                         <p className="mb-3">{id}</p>
-                        <small class="text-muted">Name: </small>
+                        <small className="text-muted">Name: </small>
                         <p className="mb-3">{id}</p>
-                        <small class="text-muted">Department: </small>
+                        <small className="text-muted">Department: </small>
                         <p className="mb-3">{id}</p>
-                        <small class="text-muted">Email: </small>
+                        <small className="text-muted">Email: </small>
                         <p className="mb-3">{id}</p>
-                        <small class="text-muted">Mobile: </small>
+                        <small className="text-muted">Mobile: </small>
                         <p className="mb-4">{id}</p>
                       </div>
                       <a className="text-muted" href={employee.twitter}>
@@ -262,14 +262,14 @@ function runApp() {
                       </a>
                     </div>
                     <div className="col-sm">
-                      <div class="ratio ratio-1x1">
+                      <div className="ratio ratio-1x1">
                         {/* <div>1x1</div> 
                         <div className="ratio ratio-1x1">
                           <img
                             src={employee.qr}
                             // width="5"
                             // height="5"
-                            class="rounded float-center ratio ratio-1x1"
+                            className="rounded float-center ratio ratio-1x1"
                             alt=""
                           />
                         </div>

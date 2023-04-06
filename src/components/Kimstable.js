@@ -43,11 +43,16 @@ const Kimstable = () => {
 
         return <td>{item[`${columnItem.value}`]}</td>;
       })}
+
+      <td>
+        <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>Delete</button>
+      </td>
     </tr>
   );
 
   //axios
   const apikimstable = ipapi+"/api/kims/getdata";
+  const apikimstabledelete = ipapi+"/api/kims/delete";
 
   useEffect(() => {
     axios(apikimstable)
@@ -65,6 +70,15 @@ const Kimstable = () => {
     { heading: "Department", value: "student_dep" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios.post(apikimstabledelete, {id})
+      .then((res) => {
+        setDataTable(dataTable.filter((item) => item._id !== id));
+      })
+      .catch((err) => console.log("err",err));
+  };
 
   return (
     <div class="bg-secondary bg-opacity-10 py-5">

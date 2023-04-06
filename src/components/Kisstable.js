@@ -43,14 +43,18 @@ const Kisstable = () => {
 
         return <td>{item[`${columnItem.value}`]}</td>;
       })}
+      <td>
+        <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>Delete</button>
+      </td>
     </tr>
   );
 
   //axios
-  const apikiittable = ipapi+"/api/kiss/getdata";
+  const apikisstable = ipapi+"/api/kiss/getdata";
+  const apikisstabledelete = ipapi+"/api/kiss/delete";
 
   useEffect(() => {
-    axios(apikiittable)
+    axios(apikisstable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
   });
@@ -58,13 +62,22 @@ const Kisstable = () => {
   //table columns
 
   const column = [
-    { heading: "Admission Ref.", value: "adm_ref_no" },
+    { heading: "Admission Ref.", value: "billno." },
     { heading: "Name", value: "student_name" },
     { heading: "City", value: "city" },
     { heading: "Phone", value: "student_ph" },
     { heading: "Department", value: "student_dep" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios.post(apikisstabledelete, {id})
+      .then((res) => {
+        setDataTable(dataTable.filter((item) => item._id !== id));
+      })
+      .catch((err) => console.log("err",err));
+  };
 
   return (
     <div class="bg-secondary bg-opacity-10 py-5">

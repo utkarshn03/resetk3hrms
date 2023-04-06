@@ -44,11 +44,15 @@ const Kiittable = () => {
 
         return <td>{item[`${columnItem.value}`]}</td>;
       })}
+      <td>
+        <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>Delete</button>
+      </td>
     </tr>
   );
 
   //axios
-  const apikiittable = ipapi+"/api/kiit/getdata";
+  const apikiittable = ipapi+"/api/kiit/get";
+  const apikiittabledelete = ipapi+"/api/kiit/delete";
 
   useEffect(() => {
     axios(apikiittable)
@@ -63,9 +67,18 @@ const Kiittable = () => {
     { heading: "Name", value: "student_name" },
     { heading: "City", value: "city" },
     { heading: "Phone", value: "student_ph" },
-    { heading: "Department", value: "student_dep" },
+    { heading: "Amount", value: "amount_by_candidate" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios.post(apikiittabledelete, {id})
+      .then((res) => {
+        setDataTable(dataTable.filter((item) => item._id !== id));
+      })
+      .catch((err) => console.log("err",err));
+  };
 
   const navigate = useNavigate() 
   const handleClick= async(e)=>{
@@ -129,7 +142,7 @@ const Kiittable = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col-sm">
+            <div className="col-sm ">
               <div className="table-responsive-sm">
                 <Table data={dataTable} column={column}/>
               </div>

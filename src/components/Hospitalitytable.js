@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import DataTable from "react-data-table-component";
+//import DataTable from "react-data-table-component";
 const { ipapi } = require("../config.json");
-const ExpanddedComponent = ({data}) => <pre>{JSON.stringify(data, null, 2)}</pre>
+//const ExpanddedComponent = ({data}) => <pre>{JSON.stringify(data, null, 2)}</pre>
 
 // import kiittable from "";
 
@@ -49,14 +49,17 @@ const Hospitalitytable = (props) => {
           const itemSplit = columnItem.value.split("."); //['address', 'city']
           return <td>{item[itemSplit[0]][itemSplit[1]]}</td>;
         }
-
         return <td>{item[`${columnItem.value}`]}</td>;
       })}
+      <td>
+        <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>Delete</button>
+      </td>
     </tr>
   );
 
   //axios
-  const apihospitalitytable = ipapi + "/api/hospitality/";
+  const apihospitalitytable = ipapi + "/api/hospitality/get";
+  const apihospitalitytabledelete = ipapi + "/api/hospitality/delete";
 
   useEffect(() => {
     axios(apihospitalitytable)
@@ -69,9 +72,18 @@ const Hospitalitytable = (props) => {
   const column = [
     { heading: "Purpose", value: "purpose" },
     { heading: "Date of Purchase", value: "dop" },
-    { heading: "Total Price (₹)", value: "city" },
+    { heading: "Total Price (₹)", value: "total_price" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios.post(apihospitalitytabledelete, {id})
+      .then((res) => {
+        setDataTable(dataTable.filter((item) => item._id !== id));
+      })
+      .catch((err) => console.log("err",err));
+  };
 
   return (
     <div className="bg-secondary bg-opacity-10 py-5">
