@@ -25,16 +25,13 @@ export default function Entry({setUser}) {
     
   return (
     <div className='main-container'>
-        <div className='form-header'>
-           {/* <button className='hbtn' onClick={toggleItem}>{curr}</button> */}
-        </div>
+       
         <ResponsiveFlex className='form-content'>
-              <FlexContent className='entry-name'>
-                
-                <br/>
-                 Welcome to Kiit HRMS 
-              </FlexContent>
               <FlexContent>
+                <br/>
+                <div className='entry-name'> 
+                Welcome to Kiit HRMS 
+                </div>
                  <Login setUser={setUser}/>
               </FlexContent>
         </ResponsiveFlex>
@@ -47,18 +44,15 @@ const ResponsiveFlex= styled.div`
          height:100%;
          display: flex;
          flex-direction: row;
-         @media (max-width: 1024px) {
-          flex-direction: column;
-          justify-content:center;
-          align-items:center;
-        }
+         justify-content: center;
+         
 `
 const FlexContent= styled.div`
-      width:50%;     
+      width:60%;
+      height:100%;
       padding: 1rem;
-      @media (max-width: 1024px) {
-        flex-direction: column;
-        justify-content:center;
-        align-items:center;
-      }
+      display:flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items:center;
 `

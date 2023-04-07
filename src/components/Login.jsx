@@ -72,9 +72,10 @@ const navigate= useNavigate();
 
 
 const [inputs, setInputs] = useState({
-  email: "",
-  password: "",
-});
+
+  username: "",
+  password:""
+})
 
 const handleChange = (e) => {
   setInputs(prev => ({
@@ -158,11 +159,13 @@ const handleSubmit = (e) => {
       Login In
     </Heading>
     <FormContent onSubmit={handleSubmit}>
-       <label htmlFor='email'>Email: </label>
+       <label htmlFor='username'>username </label>
        <input type="text"
               placeholder='youremail@gmail.com'
-              name='email' 
-              id ="email" 
+
+              name='username' 
+              id ="username" 
+
               value={inputs.email}
               onChange={handleChange}
               />
@@ -174,7 +177,7 @@ const handleSubmit = (e) => {
               value={inputs.password}
               onChange={handleChange}
               />
-                <button className='submit-btn'>Log In</button>
+                <button className='submit-btn' onClick={runApp}>Log In</button>
     </FormContent>
   </FormContainer>
   )

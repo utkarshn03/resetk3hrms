@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-const { ipapi } = require("../config.json");
-
+import { Modal, Button } from "react-bootstrap";
+import Kiitform from "./Kiitform"
 // import kiittable from "";
-
+const { ipapi } = require("../config.json");
 const Kiittable = () => {
 
   document.title="K3hrms · Kiit";
@@ -57,10 +57,10 @@ const Kiittable = () => {
   const apikiittabledelete = ipapi+"/api/kiit/delete";
 
   useEffect(() => {
-    axios(apikiittable)
+    axios.get(apikiittable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
-  });
+  },[]);
 
   //table columns
 
@@ -93,6 +93,12 @@ const Kiittable = () => {
        e.preventDefault()
        navigate("./k3/kiit/form")
   }
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="bg-secondary bg-opacity-10 py-5">
       <div className="py-5">
@@ -107,12 +113,32 @@ const Kiittable = () => {
               </p>
             </div>
             <div className="col-sm-auto">
-              <button >
-                <a  href="/k3/kiit/form" className="btn btn-success mx-2">
-                Add Candidate Details </a>
+              <button className="btn btn-success mx-2" type="button" data-toggle="modal" data-target="#exampleModalCenter" variant="primary" onClick={handleShow}>
+               
+                Add Candidate Details
               </button>
             </div>
           </div>
+
+      <Modal show={show} onHide={handleClose} size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Kiitform/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
 
           <div className="row">
             <div className="col-sm">

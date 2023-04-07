@@ -20,8 +20,9 @@ export const Heading= styled.div`
 `
 export const FormContainer= styled.div`
       padding : 1.5rem 3rem 1.5rem 3rem;
-      width: 70%;
-      border-radius:16px;
+      width: 50%;
+      hight:50%;
+      border-radius:5px;
       font-family: 'Poppins', sans-serif;
       border:5rem;
       border: 1px solid #BFBFBF;
