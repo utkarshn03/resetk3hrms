@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 //     .then(data => getimage.src = data.primaryImage);
 
 const Employeedet = () => {
-  const employee = "12344";
+  const employee = "";
   const id = "123344";
 
   function createCookie(fieldname, fieldvalue, expiry) {

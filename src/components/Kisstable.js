@@ -54,7 +54,7 @@ const Kisstable = () => {
   const apikisstabledelete = ipapi+"/api/kiss/delete";
 
   useEffect(() => {
-    axios(apikisstable)
+    axios.post(apikisstable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
   });
