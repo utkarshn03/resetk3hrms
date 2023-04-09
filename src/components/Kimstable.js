@@ -49,6 +49,12 @@ const Kimstable = () => {
       <td>
         <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>Delete</button>
       </td>
+      <td>
+        <button className="btn btn-body-color" 
+        // onClick={() => handleView(item._id)}
+        >
+          View</button>
+      </td>
     </tr>
   );
 
@@ -70,6 +76,7 @@ const Kimstable = () => {
     { heading: "City", value: "city" },
     { heading: "Phone", value: "student_ph" },
     { heading: "Department", value: "student_dep" },
+    { heading: "Actions" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
 

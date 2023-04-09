@@ -52,7 +52,7 @@ const Kisstable = () => {
   );
 
   //axios
-  const apikisstable = ipapi+"/api/kiss/getdata";
+  const apikisstable = ipapi+"/api/kiss/get";
   const apikisstabledelete = ipapi+"/api/kiss/delete";
 
   useEffect(() => {

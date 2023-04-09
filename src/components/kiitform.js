@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
+
 const { ipapi } = require("../config.json");
 
 // 214x214
@@ -69,10 +70,10 @@ function Kiitform (props) {
   return (
     <div>
       <div className="container">
-        <h4 className="text-success mb-0">Candidate Registration</h4>
+        {/* <h4 className="text-success mb-0">Candidate Registration</h4>
         <p className="mb-3">
           <small className="text-muted">Add Candidate</small>
-        </p>
+        </p> */}
         <form onSubmit={handleSubmit}>
           <div className="mt-3 mb-3">
             <div className="border rounded-4 p-4">

@@ -1,5 +1,5 @@
 import React from 'react'
-import Welcomecard from '../components/Welcomecard'
+import Welcomecard from '../components/Welcome.js'
 function WelcomePage() {
   document.title="K3hrms · Home";
   return (

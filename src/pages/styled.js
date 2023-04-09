@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   `
 export const Heading= styled.div`
   padding: 5px 0px 0px 0px;
-  font-size: 25px;
+  font-size: 35px;
   font-style: none;
   text-align:center;
   font-family: 'Noto Sans', sans-serif;

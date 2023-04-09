@@ -10,6 +10,8 @@ const Kiittable = () => {
   document.title="K3hrms · Kiit";
 
   const [dataTable, setDataTable] = useState([]);
+  // const [serialNumber, setSerialNumber] = useState(1);
+  let serialNumber =1;
   console.log(dataTable);
 
   const Table = ({ data, column }) => {
@@ -18,16 +20,22 @@ const Kiittable = () => {
       id="admsearch">
         <thead>
           <tr>
+            
             {column.map((item, index) => <TableHeadItem item={item} />)}
+            <th>Actions</th>
           </tr>
+          
+
           
         </thead>
         <tbody className="table-group-divider">
+        
           {data.map((item, index) => <TableRow item={item} column={column} />)}
         </tbody>
         <tfoot  className="table-group-divider">
         <tr>
             {column.map((item, index) => <TableHeadItem item={item} />)}
+            <th>Actions</th>
           </tr>
         </tfoot>
       </table>
@@ -36,19 +44,25 @@ const Kiittable = () => {
 
   const TableHeadItem = ({ item }) => <th>{item.heading}</th>;
   const TableRow = ({ item, column }) => (
+    
     <tr>
+      
       {column.map((columnItem, index) => {
-        if (columnItem.value.includes(".")) {
-          const itemSplit = columnItem.value.split("."); //['address', 'city']
-          return <td>{item[itemSplit[0]][itemSplit[1]]}</td>;
-        }
-
-        return <td>{item[`${columnItem.value}`]}</td>;
+        
+        return <>
+        
+        <td>{item[`${columnItem.value}`]}</td></>;
       })}
       <td>
-        <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>Delete</button>
-        <button className="btn btn-white" onClick={() => handleView(item._id)}>View</button>
+      <button className="btn btn-body-color" 
+        // onClick={() => handleView(item._id)}
+        >
+          View</button>
+        <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>
+          Del
+        </button>
       </td>
+      
     </tr>
   );
 
@@ -65,12 +79,12 @@ const Kiittable = () => {
   //table columns
 
   const column = [
+    { heading: "Serial Number", value: serialNumber},
     { heading: "Admission Ref.", value: "adm_ref_no" },
     { heading: "Name", value: "student_name" },
-    { heading: "City", value: "city" },
+    { heading: "Email", value: "student_email" },
     { heading: "Phone", value: "student_ph" },
     { heading: "Amount (₹)", value: "amount_by_candidate" },
-    { heading: "Actions"}
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
 
@@ -124,7 +138,7 @@ const Kiittable = () => {
       aria-labelledby="contained-modal-title-vcenter"
       centered>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title className="text-success">Add Candidate Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Kiitform/>

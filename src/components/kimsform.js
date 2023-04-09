@@ -45,20 +45,14 @@ const Kimsform = () => {
     return data;
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(inputs);
-  //   sendRequest().then(() => alert(inputs)); //to meghna
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData();
     for (let i = 0; i < selectedFiles.length; i++) {
       formData.append("images", selectedFiles[i]);
     }
-    axios("/api/submit-form", {
-      method: "POST",
+    axios.post("/api/submit-form", {
+
       body: formData,
     })
       .then((response) => {

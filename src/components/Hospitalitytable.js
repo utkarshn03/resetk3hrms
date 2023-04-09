@@ -1,17 +1,45 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-//import DataTable from "react-data-table-component";
-const { ipapi } = require("../config.json");
-//const ExpanddedComponent = ({data}) => <pre>{JSON.stringify(data, null, 2)}</pre>
+import moment from "moment";
 
-// import kiittable from "";
+const { ipapi } = require("../config.json");
 
 const Hospitalitytable = (props) => {
-
-  document.title="K3hrms · Hospitality";
+  document.title = "K3hrms · Hospitality";
 
   const [dataTable, setDataTable] = useState([]);
+  const [serialNumber, setSerialNumber] = useState(1);
+
   console.log(dataTable);
+
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let monthIndex = new Date().getMonth();
+  let monthName = monthNames[monthIndex];
+
+  const dateString = "2015-03-10T10:50:30.389Z";
+  const dateObject = new Date(dateString);
+  const month = dateObject.getMonth();
+  //console.log(monthNames[month]);
+
+  const complicatedDateString = "2015-03-10T10:50:30.389Z";
+  const dateObjectfy = new Date(complicatedDateString);
+  const simpleDateString = dateObjectfy.toLocaleDateString();
+  //console.log(simpleDateString); // Output: "3/10/2015"
+
+  // render jsx
 
   const Table = ({ data, column }) => {
     return (
@@ -39,20 +67,30 @@ const Hospitalitytable = (props) => {
     );
   };
 
-
-  
   const TableHeadItem = ({ item }) => <th>{item.heading}</th>;
   const TableRow = ({ item, column }) => (
     <tr>
-      {column.map((columnItem, index) => {
-        if (columnItem.value.includes(".")) {
-          const itemSplit = columnItem.value.split("."); //['address', 'city']
-          return <td>{item[itemSplit[0]][itemSplit[1]]}</td>;
+      {column.map((columnItem) => {
+        //console.log();
+        if (columnItem.value === "dop") {
+          //console.log(columnItem.heading);
+          console.log(item[columnItem.value]);
+          const dateofpr = item[columnItem.value];
+          const dateObjectfi = new Date(dateofpr);
+
+          item[columnItem.value]=dateObjectfi.toLocaleDateString();
+          console.log(item[columnItem.value]);
         }
-        return <td>{item[`${columnItem.value}`]}</td>;
+        return <td>{item[columnItem.value]}</td>;
       })}
       <td>
-        <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>Delete</button>
+        <button className="btn btn-secondary">View</button>
+        <button
+          className="btn btn-danger"
+          onClick={() => handleDelete(item._id)}
+        >
+          Delete
+        </button>
       </td>
     </tr>
   );
@@ -62,10 +100,11 @@ const Hospitalitytable = (props) => {
   const apihospitalitytabledelete = ipapi + "/api/hospitality/delete";
 
   useEffect(() => {
-    axios(apihospitalitytable)
+    axios
+      .get(apihospitalitytable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
-  });
+  },[]);
 
   //table columns
 
@@ -77,12 +116,12 @@ const Hospitalitytable = (props) => {
   ];
 
   const handleDelete = (id) => {
-    console.log(id);
-    axios.post(apihospitalitytabledelete, {id})
+    axios
+      .post(apihospitalitytabledelete, { id })
       .then((res) => {
         setDataTable(dataTable.filter((item) => item._id !== id));
       })
-      .catch((err) => console.log("err",err));
+      .catch((err) => console.log("err", err));
   };
 
   return (
@@ -103,6 +142,7 @@ const Hospitalitytable = (props) => {
                 Add Candidate Details
               </a>
             </div>
+            <div></div>
           </div>
 
           <div className="row">
@@ -112,17 +152,17 @@ const Hospitalitytable = (props) => {
                 className="form-label"
                 onkeyup="myFunction()"
               >
-                Select Department
+                Select Month
               </label>
               <select
                 className="form-select"
                 aria-label="Select Department"
                 id="admSelect"
               >
-                <option value="">All</option>
-                <option value="Food">Food</option>
-                <option value="Hotel">Hotel</option>
-                <option value="Party Booking">Party Booking</option>
+                <option value={monthIndex}>{monthName}</option>
+                <option value="0">January</option>
+                <option value="1">Hotel</option>
+                <option value="2">Party Booking</option>
               </select>
             </div>
 
