@@ -10,6 +10,7 @@ const Kiittable = () => {
   document.title="K3hrms · Kiit";
 
   const [dataTable, setDataTable] = useState([]);
+  const[test,setTest]=useState(1);
   console.log(dataTable);
 
   const Table = ({ data, column }) => {
@@ -51,18 +52,19 @@ const Kiittable = () => {
   );
 
   //axios
-  const apikiittable = ipapi+"/api/kiit/get";
+  const apikiittable = ipapi+"/api/kiit/getdata";
   const apikiittabledelete = ipapi+"/api/kiit/delete";
 
   useEffect(() => {
     axios.get(apikiittable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
-  },[]);
+  },[test]);
 
   //table columns
 
   const column = [
+    { heading: "Serial no", value: "adm_ref_no" },
     { heading: "Admission Ref.", value: "adm_ref_no" },
     { heading: "Name", value: "student_name" },
     { heading: "City", value: "city" },
@@ -73,6 +75,7 @@ const Kiittable = () => {
 
   const handleDelete = (id) => {
     console.log(id);
+    setTest(test+1);
     axios.post(apikiittabledelete, {id})
       .then((res) => {
         setDataTable(dataTable.filter((item) => item._id !== id));
@@ -123,10 +126,10 @@ const Kiittable = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Save Changes and close
           </Button>
         </Modal.Footer>
       </Modal>

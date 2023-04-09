@@ -64,8 +64,8 @@ const [valuetime, setValuetime] = React.useState(
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then(() => console.log("looks good/")); //to meghna
-  };
+    sendRequest().then(() => console.log("looks good/")); 
+      };
 
   return (
     <div>

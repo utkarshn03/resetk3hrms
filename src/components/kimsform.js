@@ -234,7 +234,7 @@ const Kimsform = () => {
             <div className="mt-3 mb-3">
               <div className="border rounded-4 p-4 text-end">
                 <button type="reset" className="btn btn-danger btn">
-                  Cancel
+                  reset form
                 </button>
                 <button type="submit" className="btn btn-success btn">
                   Add

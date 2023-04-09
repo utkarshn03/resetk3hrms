@@ -93,7 +93,10 @@ const sendRequest = async () => {
           username: inputs.email,
           password: inputs.password,
       }
-  ).catch((err) => console.log(err));
+  ).then(function(response){
+    console.log(response)
+  })
+  .catch((err) => console.log(err));
   const data = await res.data;
   flag=1;
   return data;  

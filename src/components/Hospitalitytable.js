@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Hospitalityform from "./Hospitalityform"
+import { Modal, Button } from "react-bootstrap";
 //import DataTable from "react-data-table-component";
 const { ipapi } = require("../config.json");
 //const ExpanddedComponent = ({data}) => <pre>{JSON.stringify(data, null, 2)}</pre>
@@ -8,6 +10,10 @@ const { ipapi } = require("../config.json");
 
 const Hospitalitytable = (props) => {
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   document.title="K3hrms · Hospitality";
 
   const [dataTable, setDataTable] = useState([]);
@@ -44,10 +50,16 @@ const Hospitalitytable = (props) => {
   const TableHeadItem = ({ item }) => <th>{item.heading}</th>;
   const TableRow = ({ item, column }) => (
     <tr>
+
       {column.map((columnItem, index) => {
-        if (columnItem.value.includes(".")) {
-          const itemSplit = columnItem.value.split("."); //['address', 'city']
-          return <td>{item[itemSplit[0]][itemSplit[1]]}</td>;
+        if (columnItem.value === "dop") {
+          //console.log(columnItem.heading);
+          console.log(item[columnItem.value]);
+          const dateofpr = item[columnItem.value];
+          const dateObjectfi = new Date(dateofpr);
+
+          item[columnItem.value]=dateObjectfi.toLocaleDateString();
+          console.log(item[columnItem.value]);
         }
         return <td>{item[`${columnItem.value}`]}</td>;
       })}
@@ -65,7 +77,7 @@ const Hospitalitytable = (props) => {
     axios(apihospitalitytable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
-  });
+  },[]);
 
   //table columns
 
@@ -75,7 +87,7 @@ const Hospitalitytable = (props) => {
     { heading: "Total Price (₹)", value: "total_price" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
-
+   
   const handleDelete = (id) => {
     console.log(id);
     axios.post(apihospitalitytabledelete, {id})
@@ -99,12 +111,35 @@ const Hospitalitytable = (props) => {
               </p>
             </div>
             <div className="col-sm-auto">
-              <a href="/k3/hospitality/form" className="btn btn-success mx-2">
+              <button onClick={handleShow} className="btn btn-success mx-2">
                 Add Candidate Details
-              </a>
+              </button>
             </div>
           </div>
-
+          <Modal show={show} onHide={handleClose} size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+          <Modal.Header closeButton>
+          <Modal.Title>
+          <h4 className="text-success mb-0">Candidate Registration</h4>
+        <p className="mb-3">
+          <small className="text-muted">Add Candidate</small>
+        </p>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Hospitalityform/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+           
           <div className="row">
             <div className="col-sm">
               <label

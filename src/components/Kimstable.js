@@ -9,7 +9,10 @@ const { ipapi } = require("../config.json");
 const Kimstable = () => {
 
   document.title="K3hrms ·Kims";
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [dataTable, setDataTable] = useState([]);
   console.log(dataTable);
 
@@ -53,7 +56,7 @@ const Kimstable = () => {
   );
 
   //axios
-  const apikimstable = ipapi+"/api/kims/getdata";
+  const apikimstable = ipapi+"/api/kims/get";
   const apikimstabledelete = ipapi+"/api/kims/delete";
 
   useEffect(() => {
@@ -96,12 +99,29 @@ const Kimstable = () => {
               </p>
             </div>
             <div className="col-sm-auto">
-              <a href="/k3/kims/form" className="btn btn-success mx-2">
+              <button onClick={handleShow} className="btn btn-success mx-2">
                 Add Patient Details
-              </a>
+              </button>
             </div>
           </div>
-
+          <Modal show={show} onHide={handleClose} size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Kimsform/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
           <div className="row">
             <div className="col-sm">
               <label
