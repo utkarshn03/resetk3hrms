@@ -15,17 +15,18 @@ const Kiittable = () => {
 
   const Table = ({ data, column }) => {
     return (
-      <table class="table table-hover table-responsive-sm"
+      <table className="table table-hover table-responsive-sm"
       id="admsearch">
         <thead>
           <tr>
             {column.map((item, index) => <TableHeadItem item={item} />)}
           </tr>
+          
         </thead>
-        <tbody class="table-group-divider">
+        <tbody className="table-group-divider">
           {data.map((item, index) => <TableRow item={item} column={column} />)}
         </tbody>
-        <tfoot  class="table-group-divider">
+        <tfoot  className="table-group-divider">
         <tr>
             {column.map((item, index) => <TableHeadItem item={item} />)}
           </tr>
@@ -47,6 +48,7 @@ const Kiittable = () => {
       })}
       <td>
         <button className="btn btn-danger" onClick={() => handleDelete(item._id)}>Delete</button>
+        <button className="btn btn-white" onClick={() => handleView(item._id)}>View</button>
       </td>
     </tr>
   );
@@ -69,7 +71,8 @@ const Kiittable = () => {
     { heading: "Name", value: "student_name" },
     { heading: "City", value: "city" },
     { heading: "Phone", value: "student_ph" },
-    { heading: "Amount", value: "amount_by_candidate" },
+    { heading: "Amount (₹)", value: "amount_by_candidate" },
+    { heading: "Actions"}
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
 
@@ -81,6 +84,11 @@ const Kiittable = () => {
         setDataTable(dataTable.filter((item) => item._id !== id));
       })
       .catch((err) => console.log("err",err));
+  };
+
+
+  const handleView = (id) => {
+
   };
 
   const navigate = useNavigate() 
@@ -95,7 +103,7 @@ const Kiittable = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <div class="bg-secondary bg-opacity-10 py-5">
+    <div className="bg-secondary bg-opacity-10 py-5">
       <div className="py-5">
         <div className="container">
           <div className="row">
