@@ -4,6 +4,9 @@ import Hospitalityform from "./Hospitalityform"
 import { Modal, Button } from "react-bootstrap";
 //import DataTable from "react-data-table-component";
 const { ipapi } = require("../config.json");
+//const ExpanddedComponent = ({data}) => <pre>{JSON.stringify(data, null, 2)}</pre>
+
+const { ipapi } = require("../config.json");
 
 const Hospitalitytable = (props) => {
 
@@ -73,11 +76,9 @@ const Hospitalitytable = (props) => {
     );
   };
 
-
   const TableHeadItem = ({ item }) => <th>{item.heading}</th>;
   const TableRow = ({ item, column }) => (
     <tr>
-      {column.map((columnItem, index) => {
 
       {column.map((columnItem, index) => {
         if (columnItem.value === "dop") {
@@ -88,6 +89,7 @@ const Hospitalitytable = (props) => {
 
           item[columnItem.value]=dateObjectfi.toLocaleDateString();
           console.log(item[columnItem.value]);
+        }
         return <td>{item[columnItem.value]}</td>;
       })}
       <td>
