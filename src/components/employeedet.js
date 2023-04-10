@@ -59,44 +59,25 @@ function runApp() {
       <div className="py-2">
         <div className="container">
           <div className="row g-4">
-            <div className="col-sm-3 d-flex align-items-strech mb-4 mt-5">
-              <div className="bg-white shadow-lg rounded-4 p-4 flex-fill">
-                <div className="ratio ratio-1x1">
+            <div className="col-sm-7  shadow-lg d-flex align-items-strech mb-4 mt-5">
+            <div className="col-sm-5 border d-flex align-items-strech mb-4 ml-4 mt-5 ">
+              <div className="bg-white rounded-4 p-4 ">
+                <div className="rounded-4 p-4 ">
                   {/* <div>1x1</div> */}
                   <div className="ratio ratio-1x1">
                     <img
                       src="https://i.pinimg.com/564x/9d/5f/69/9d5f694dd71f71dae11ffb95981742cc.jpg"
-                      // width="100"
-                      // height="100"
+                      // width="50%"
+                      // height="50%"
                       className="rounded float-center ratio ratio-1x1"
                       alt=""
                     />
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-4 d-flex align-items-stretch mb-4 mt-5">
-              <div className="bg-white shadow-lg rounded-4 p-4 flex-fill">
-                <div className="mb-0">
-                  <small className="text-muted">Employee Id: </small>
-                  <p className="mb-2">{id}</p>
-                  <small className="text-muted">Name: </small>
-                  <p className="mb-2">{id}</p>
-                  <small className="text-muted">Department: </small>
-                  <p className="mb-2">{id}</p>
-                  <small className="text-muted">Email: </small>
-                  <p className="mb-2">{id}</p>
-                  <small className="text-muted">Mobile: </small>
-                  <p className="mb-2">{id}</p>
-                </div>
+                  <div className="">
+              <div className="bg-white rounded-4 p-4 flex-fill d-flex ">
                 
-              </div>
-            </div>
-            <div className="col-sm-1 d-flex align-items-stretch mb-4 mt-5">
-              <div className="bg-white shadow-lg rounded-4 p-4 flex-fill">
-                
-                <div className="mb-3">
-                <a className="text-muted" href="https://twitter.comx">
+                <div className="ml-4">
+                <a className="text-muted" href="https://twitter.com">
                   <svg
                     fill="#000000"
                     height="28px"
@@ -110,7 +91,7 @@ function runApp() {
                 </a>
                 </div>
                 <br/>
-                <div className="mb-3">
+                <div className="ml-4">
                 <a className="text-muted" href={employee.instagram}>
                   <svg width="28px" height="28px" viewBox="0 0 20 20">
                     <rect x="0" fill="none" width="20" height="20" />
@@ -122,7 +103,7 @@ function runApp() {
                 </a>
                 </div>
                 <br/>
-                <div className="mb-4">
+                <div className="ml-4">
                 <a className="text-muted" href={employee.facebook}>
                   <svg
                     fill="#000000"
@@ -137,7 +118,7 @@ function runApp() {
                 </a>
                 </div>
                 <br/>
-                <div className="mb-3">
+                <div className="ml-4">
                 <a className="text-muted" href={employee.youtube}>
                   <svg
                     fill="#000000"
@@ -152,6 +133,29 @@ function runApp() {
                 </a>
                 </div>
               </div>
+            </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-6 border d-flex align-items-stretch mb-4 mt-5 ">
+              <div className="bg-white rounded-4 p-4 flex-fill">
+                <div className="mb-0">
+                  <div>
+                  <h6 className="text-muted ">Employee Id: </h6>
+                  <small className="mb-2">{id}</small>
+                  </div>
+                  <div className="text-muted">Name: </div>
+                  <p className="mb-2">{id}</p>
+                  <div className="text-muted">Department: </div>
+                  <p className="mb-2">{id}</p>
+                  <div className="text-muted">Email: </div>
+                  <p className="mb-2">{id}</p>
+                  <div className="text-muted">Mobile: </div>
+                  <p className="mb-2">{id}</p>
+                </div>
+                
+              </div>
+            </div>
             </div>
             <div className="col-sm-3 shadow-lg d-flex align-items-strech mb-4 mt-5">
               <div className="bg-white rounded-4 p-4 flex-fill">

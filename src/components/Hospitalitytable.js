@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import moment from "moment";
-
+import Hospitalityform from "./Hospitalityform"
+import { Modal, Button } from "react-bootstrap";
+//import DataTable from "react-data-table-component";
 const { ipapi } = require("../config.json");
 
 const Hospitalitytable = (props) => {
-  document.title = "K3hrms · Hospitality";
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  document.title="K3hrms · Hospitality";
 
   const [dataTable, setDataTable] = useState([]);
   const [serialNumber, setSerialNumber] = useState(1);
@@ -67,11 +73,13 @@ const Hospitalitytable = (props) => {
     );
   };
 
+
   const TableHeadItem = ({ item }) => <th>{item.heading}</th>;
   const TableRow = ({ item, column }) => (
     <tr>
-      {column.map((columnItem) => {
-        //console.log();
+      {column.map((columnItem, index) => {
+
+      {column.map((columnItem, index) => {
         if (columnItem.value === "dop") {
           //console.log(columnItem.heading);
           console.log(item[columnItem.value]);
@@ -80,7 +88,6 @@ const Hospitalitytable = (props) => {
 
           item[columnItem.value]=dateObjectfi.toLocaleDateString();
           console.log(item[columnItem.value]);
-        }
         return <td>{item[columnItem.value]}</td>;
       })}
       <td>
@@ -114,7 +121,7 @@ const Hospitalitytable = (props) => {
     { heading: "Total Price (₹)", value: "total_price" },
     // { heading: 'Document', value: 'proof_docu.links' },
   ];
-
+   
   const handleDelete = (id) => {
     axios
       .post(apihospitalitytabledelete, { id })
@@ -138,13 +145,36 @@ const Hospitalitytable = (props) => {
               </p>
             </div>
             <div className="col-sm-auto">
-              <a href="/k3/hospitality/form" className="btn btn-success mx-2">
+              <button onClick={handleShow} className="btn btn-success mx-2">
                 Add Candidate Details
-              </a>
+              </button>
             </div>
             <div></div>
           </div>
-
+          <Modal show={show} onHide={handleClose} size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+          <Modal.Header closeButton>
+          <Modal.Title>
+          <h4 className="text-success mb-0">Candidate Registration</h4>
+        <p className="mb-3">
+          <small className="text-muted">Add Candidate</small>
+        </p>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Hospitalityform/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+           
           <div className="row">
             <div className="col-sm">
               <label
