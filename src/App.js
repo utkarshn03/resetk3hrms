@@ -1,9 +1,7 @@
 import React from "react";
-
-import "./App.css";
-
 import { BrowserRouter, Route,Routes } from "react-router-dom";
 
+import "./App.css";
 import Kiit from "./pages/Kiit";
 import Kissform from './components/Kissform';
 import Kiitform from "./components/Kiitform";
@@ -23,28 +21,12 @@ import Home from "./components/Home";
 
 //import Welcome from './components/Welcome';
 
-// import Signup from "./admin/Signup";
-
-
+import Signup from "./admin/Signup";
+import Departmentregister from "./admin/Department";
+import Departmenttable from "./admin/Departmentable";
+import EmployeeTable from "./admin/EmployeeTable";
 
 function App() {
-
-  // const [alert, setAlert] = useState(null);
-  
-
-  // //Alert function
-  // const showAlert = (message, type)=>{
-  //   setAlert({
-  //     msg: message,
-  //     type: type
-  //   })
-  //   setTimeout(()=>{
-  //     setAlert(null);
-  //   }, 2000);
-    
-  // }
-
-  // const [user,setUser]= useState(null)
 
   return (
     <>
@@ -68,8 +50,12 @@ function App() {
        <Route path="/k3/socialmedia" element={<div><Header/><Socialmedia/></div>}/>
 
        <Route path="/" element={<div><Home/></div>}/>
-       {/* Admin acces */}
-       {/* <Route path="/k3/admin/#/user/signup" element={<><Header/><Signup/></>}/> */}
+       {/* Admin access */}
+       <Route path="/k3/admin/createuser" element={<><Signup/></>}/>
+       <Route path="/k3/admin/adddepartment" element={<><Departmentregister/></>}/>
+       <Route path="/k3/admin/department" element={<><Departmenttable/></>}/>
+       <Route path="/k3/admin/employee" element={<><EmployeeTable/></>}/>
+
        
        </Routes>
        

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 
 const { ipapi } = require("../config.json");
 
-// 214x214
 
 function Kiitform (props) {
 
   document.title="K3hrms · Kiitform";
   
   const [inputs, setInputs] = useState({
-    eid: "3478g",
+    eid: "",
     adm_ref_no: "",
     student_name: "",
     student_address: "",
@@ -60,7 +60,6 @@ function Kiitform (props) {
   };
 
   const handleSubmit = (e) => {
-    
     
     e.preventDefault();
     console.log(inputs);

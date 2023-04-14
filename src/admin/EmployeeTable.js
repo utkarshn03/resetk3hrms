@@ -1,48 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Hospitalityform from "./Hospitalityform"
+
+import Departmentform from "./Department"
+import "bootstrap/dist/css/bootstrap.css";
 import { Modal, Button } from "react-bootstrap";
-//import DataTable from "react-data-table-component";
 const { ipapi } = require("../config.json");
 
-const Hospitalitytable = (props) => {
-
+const Departmentable = (props) => {
+  
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  document.title="K3hrms · Hospitality";
+
+  document.title="K3hrms · Admin";
 
   const [dataTable, setDataTable] = useState([]);
-  const [serialNumber, setSerialNumber] = useState(1);
 
   console.log(dataTable);
-  //time Localization
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let monthIndex = new Date().getMonth();
-  let monthName = monthNames[monthIndex];
 
-  const dateString = "2015-03-10T10:50:30.389Z";
-  const dateObject = new Date(dateString);
-  const month = dateObject.getMonth();
-
-  const complicatedDateString = "2015-03-10T10:50:30.389Z";
-  const dateObjectfy = new Date(complicatedDateString);
-  const simpleDateString = dateObjectfy.toLocaleDateString();
-  
   const Table = ({ data, column }) => {
     return (
       <table className="table table-hover table-responsive-sm" id="admsearch">
@@ -51,6 +27,7 @@ const Hospitalitytable = (props) => {
             {column.map((item, index) => (
               <TableHeadItem item={item} />
             ))}
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
@@ -63,6 +40,7 @@ const Hospitalitytable = (props) => {
             {column.map((item, index) => (
               <TableHeadItem item={item} />
             ))}
+            <th>Actions</th>
           </tr>
         </tfoot>
       </table>
@@ -74,19 +52,16 @@ const Hospitalitytable = (props) => {
     <tr>
 
       {column.map((columnItem, index) => {
-        if (columnItem.value === "dop") {
-          //console.log(columnItem.heading);
-          console.log(item[columnItem.value]);
-          const dateofpr = item[columnItem.value];
-          const dateObjectfi = new Date(dateofpr);
-
-          item[columnItem.value]=dateObjectfi.toLocaleDateString();
-          console.log(item[columnItem.value]);
-        }
+        
         return <td>{item[columnItem.value]}</td>;
       })}
       <td>
-        <button className="btn btn-secondary">View</button>
+      <button
+          className="btn btn-secondary"
+          onClick={() => handleView(item._id)}
+        >
+          View
+        </button>
         <button
           className="btn btn-danger"
           onClick={() => handleDelete(item._id)}
@@ -98,15 +73,12 @@ const Hospitalitytable = (props) => {
   );
 
   //api
-  const apihospitalitytable = ipapi + "/api/hospitality/get";
-  const apihospitalitytabledelete = ipapi + "/api/hospitality/delete";
-
-
-  
+  const apiemployeetable = ipapi + "/api/user/getall";
+  const apidepartmentdelete = ipapi + "/api/department/delete";  
 
   useEffect(() => {
     axios
-      .get(apihospitalitytable)
+      .get(apiemployeetable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
   },[]);
@@ -114,20 +86,30 @@ const Hospitalitytable = (props) => {
   //table columns
 
   const column = [
-    { heading: "Purpose", value: "purpose" },
-    { heading: "Date of Purchase", value: "dop" },
-    { heading: "Total Price (₹)", value: "total_price" },
-    // { heading: 'Document', value: 'proof_docu.links' },
+    { heading: "Id", value: "fname", value: "lname" },
+    { heading: "Name", value: "dep_id" },
+    { heading: "Level", value: "level"},
+    { heading: "Department", value: "department"}
   ];
    
   const handleDelete = (id) => {
     axios
-      .post(apihospitalitytabledelete, { id })
+      .post(apidepartmentdelete, { id })
       .then((res) => {
         setDataTable(dataTable.filter((item) => item._id !== id));
       })
       .catch((err) => console.log("err", err));
   };
+
+  const handleView = (id) => {
+    axios
+      .get(apiemployeetable, {id})
+      .then((res) => {
+        console.log(id)
+      }
+      )
+      .catch((err) => console.error(err));
+  }
 
   return (
     <div className="bg-secondary bg-opacity-10 py-5">
@@ -136,7 +118,7 @@ const Hospitalitytable = (props) => {
           <div className="row">
             <div className="col-sm">
               <h4 className="text-success mb-0">
-                Hospitality Table <span className="text-primary"></span>
+                Department Table <span className="text-primary"></span>
               </h4>
               <p className="mb-3">
                 <small className="text-muted"></small>
@@ -144,7 +126,7 @@ const Hospitalitytable = (props) => {
             </div>
             <div className="col-sm-auto">
               <button onClick={handleShow} className="btn btn-success mx-2">
-                Add Candidate Details
+                Add Department Details
               </button>
             </div>
             <div></div>
@@ -154,14 +136,14 @@ const Hospitalitytable = (props) => {
       centered>
           <Modal.Header closeButton>
           <Modal.Title>
-          <h4 className="text-success mb-0">Candidate Registration</h4>
+          <h4 className="text-success mb-0">Department Registration</h4>
         <p className="mb-3">
-          <small className="text-muted">Add Candidate</small>
+          <small className="text-muted">Add Department</small>
         </p>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Hospitalityform/>
+          <Departmentform/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -174,26 +156,6 @@ const Hospitalitytable = (props) => {
       </Modal>
            
           <div className="row">
-            <div className="col-sm">
-              <label
-                for="admSelect"
-                className="form-label"
-                onkeyup="myFunction()"
-              >
-                Select Month
-              </label>
-              <select
-                className="form-select"
-                aria-label="Select Department"
-                id="admSelect"
-              >
-                <option value={monthIndex}>{monthName}</option>
-                <option value="0">January</option>
-                <option value="1">Hotel</option>
-                <option value="2">Party Booking</option>
-              </select>
-            </div>
-
             <div className="col-sm">
               <div className="text-sm-end">
                 <label for="searchInput" className="form-label">
@@ -221,4 +183,4 @@ const Hospitalitytable = (props) => {
   );
 };
 
-export default Hospitalitytable;
+export default Departmentable;

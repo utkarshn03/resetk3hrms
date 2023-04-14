@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 const { ipapi } = require("../config.json");
 
 axios.defaults.withCredentials = true;
+
 var firstrender = true;
 
 function Welcome() {
+    
   let userdata;
   const apiuserget = ipapi + "/api/user";
   const apirefresh = ipapi + "/api/user/refresh";
@@ -33,7 +35,7 @@ function Welcome() {
       .catch((err) => console.log(err));
 
     userdata = await response.data;
-    console.log(userdata.fname);
+    console.log(userdata);
 
     return userdata;
   };
@@ -51,7 +53,11 @@ function Welcome() {
     return () => clearInterval(interval);
   }, []);
 
-  return <div>{User && <h1>{User.fname}</h1>}</div>;
+
+
+  return <div>{User && <h1>{User.fname} {User.lname}</h1> 
+
+  }</div>;
 }
 
 export default Welcome;

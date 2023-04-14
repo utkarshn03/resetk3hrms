@@ -18,7 +18,7 @@ function NavBar() {
 
         </a>
         <ul className="nav">
-        <li className="nav-item"><a href="/" className="nav-link link-dark px-3 fs-4">Welcome </a></li>
+        <li className="nav-item"><a className="nav-link link-dark px-3 fs-4">Welcome </a></li>
         <div className="dropdown text-end">
           <a href="/" className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="52" height="52" className="rounded-circle"/>

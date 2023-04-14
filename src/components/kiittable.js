@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
+
 import { Modal, Button } from "react-bootstrap";
-import Kiitform from "./Kiitform"
-// import kiittable from "";
+import Kiitform from "./Kiitform";
+
+
 const { ipapi } = require("../config.json");
+
+
+
 const Kiittable = () => {
 
   document.title="K3hrms · Kiit";
 
   const [dataTable, setDataTable] = useState([]);
-  // const [serialNumber, setSerialNumber] = useState(1);
-  let serialNumber =1;
+
+
   console.log(dataTable);
 
   const Table = ({ data, column }) => {
@@ -79,7 +85,6 @@ const Kiittable = () => {
   //table columns
 
   const column = [
-    { heading: "Serial Number", value: serialNumber},
     { heading: "Admission Ref.", value: "adm_ref_no" },
     { heading: "Name", value: "student_name" },
     { heading: "Email", value: "student_email" },
@@ -90,7 +95,7 @@ const Kiittable = () => {
 
   const handleDelete = (id) => {
     console.log(id);
-    setTest(test+1);
+    // setTest(test+1);
     axios.post(apikiittabledelete, {id})
       .then((res) => {
         setDataTable(dataTable.filter((item) => item._id !== id));
@@ -162,7 +167,7 @@ const Kiittable = () => {
                 className="form-label"
                 onkeyup="myFunction()"
               >
-                Select Department
+                Select Month
               </label>
               <select
                 className="form-select"
