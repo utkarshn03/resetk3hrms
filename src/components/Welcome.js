@@ -14,7 +14,6 @@ function Welcome() {
   const apirefresh = ipapi + "/api/user/refresh";
 
   const [User, setUser] = useState();
-  // console.log(User);
 
   const refreshToken = async () => {
     const response = await axios
@@ -51,7 +50,7 @@ function Welcome() {
     }, 60 * 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, );
 
 
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import Departmentform from "./Department"
+import Employeeform from "./Employeecreate"
 import "bootstrap/dist/css/bootstrap.css";
 import { Modal, Button } from "react-bootstrap";
 const { ipapi } = require("../config.json");
@@ -118,7 +118,7 @@ const Departmentable = (props) => {
           <div className="row">
             <div className="col-sm">
               <h4 className="text-success mb-0">
-                Department Table <span className="text-primary"></span>
+                Employee Table <span className="text-primary"></span>
               </h4>
               <p className="mb-3">
                 <small className="text-muted"></small>
@@ -126,7 +126,7 @@ const Departmentable = (props) => {
             </div>
             <div className="col-sm-auto">
               <button onClick={handleShow} className="btn btn-success mx-2">
-                Add Department Details
+                Add Employee
               </button>
             </div>
             <div></div>
@@ -136,23 +136,20 @@ const Departmentable = (props) => {
       centered>
           <Modal.Header closeButton>
           <Modal.Title>
-          <h4 className="text-success mb-0">Department Registration</h4>
-        <p className="mb-3">
-          <small className="text-muted">Add Department</small>
-        </p>
+          <h4 className="text-success mb-0">Employee Registration</h4>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Departmentform/>
+          <Employeeform/>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
             Save Changes
           </Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
            
           <div className="row">

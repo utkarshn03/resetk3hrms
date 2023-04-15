@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import Departmentform from "./Department"
+import Kissproductsform from "./Kissproductsform";
 import "bootstrap/dist/css/bootstrap.css";
 import { Modal, Button } from "react-bootstrap";
 const { ipapi } = require("../config.json");
@@ -56,6 +56,12 @@ const Departmentable = (props) => {
         return <td>{item[columnItem.value]}</td>;
       })}
       <td>
+      <button
+          className="btn btn-secondary"
+          onClick={() => handleView(item._id)}
+        >
+          View
+        </button>
         <button
           className="btn btn-danger"
           onClick={() => handleDelete(item._id)}
@@ -67,21 +73,23 @@ const Departmentable = (props) => {
   );
 
   //api
-  const apidepartmenttable = ipapi + "/api/department";
+  const apiemployeetable = ipapi + "/api/user/getall";
   const apidepartmentdelete = ipapi + "/api/department/delete";  
 
   useEffect(() => {
     axios
-      .get(apidepartmenttable)
+      .get(apiemployeetable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
-  },[60 * 1000]);
+  },[]);
 
   //table columns
 
   const column = [
-    { heading: "Department Name", value: "name" },
-    { heading: "Department Id", value: "dep_id" }
+    { heading: "Id", value: "fname", value: "lname" },
+    { heading: "Name", value: "dep_id" },
+    { heading: "Level", value: "level"},
+    { heading: "Department", value: "department"}
   ];
    
   const handleDelete = (id) => {
@@ -93,6 +101,16 @@ const Departmentable = (props) => {
       .catch((err) => console.log("err", err));
   };
 
+  const handleView = (id) => {
+    axios
+      .get(apiemployeetable, {id})
+      .then((res) => {
+        console.log(id)
+      }
+      )
+      .catch((err) => console.error(err));
+  }
+
   return (
     <div className="bg-secondary bg-opacity-10 py-5">
       <div className="py-5">
@@ -100,7 +118,7 @@ const Departmentable = (props) => {
           <div className="row">
             <div className="col-sm">
               <h4 className="text-success mb-0">
-                Department Table <span className="text-primary"></span>
+                Employee Table <span className="text-primary"></span>
               </h4>
               <p className="mb-3">
                 <small className="text-muted"></small>
@@ -108,7 +126,7 @@ const Departmentable = (props) => {
             </div>
             <div className="col-sm-auto">
               <button onClick={handleShow} className="btn btn-success mx-2">
-                Add Department Details
+                Add Employee
               </button>
             </div>
             <div></div>
@@ -118,23 +136,20 @@ const Departmentable = (props) => {
       centered>
           <Modal.Header closeButton>
           <Modal.Title>
-          <h4 className="text-success mb-0">Department Registration</h4>
-        <p className="mb-3">
-          <small className="text-muted">Add Department</small>
-        </p>
+          <h4 className="text-success mb-0">Kiss Product Registration</h4>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Departmentform/>
+          <Kissproductsform/>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
             Save Changes
           </Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
            
           <div className="row">

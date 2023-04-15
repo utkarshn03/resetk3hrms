@@ -21,10 +21,11 @@ import Home from "./components/Home";
 
 //import Welcome from './components/Welcome';
 
-import Signup from "./admin/Signup";
+import Signup from "./admin/Employeecreate";
 import Departmentregister from "./admin/Department";
 import Departmenttable from "./admin/Departmentable";
 import EmployeeTable from "./admin/EmployeeTable";
+import Linechart from "./admin/Linechart";
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
        <Route path="/k3/admin/adddepartment" element={<><Departmentregister/></>}/>
        <Route path="/k3/admin/department" element={<><Departmenttable/></>}/>
        <Route path="/k3/admin/employee" element={<><EmployeeTable/></>}/>
+       <Route path="/k3/admin/charts" element={<><Linechart/></>}/>
 
        
        </Routes>

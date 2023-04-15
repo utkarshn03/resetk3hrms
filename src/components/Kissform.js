@@ -4,17 +4,17 @@ import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { nanoid } from "nanoid";
 import data from "./data.json";
-import Select from 'react-select';
+import Select from "react-select";
 
 const { ipapi } = require("../config.json");
-
 
 const Kissform = () => {
   document.title = "K3hrms · Kissform";
 
- // const [entry, setEntry] = useState(data);
+  // const [entry, setEntry] = useState(data);
   const [dataTable, setDataTable] = useState([]);
   const [options, setOptions] = useState([]);
+  const [items, setItems] = useState([]);
 
   console.log(dataTable);
 
@@ -84,6 +84,14 @@ const Kissform = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    fetch(apikissproducts)
+      .then((response) => response.json())
+      .then((data) => setItems(data))
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }, []);
+
   //table columns
 
   const column = [
@@ -112,7 +120,7 @@ const Kissform = () => {
       const response = await axios.get(apikissproducts);
       const data = response.data;
       console.log(data);
-      const options = data.map(item => ({
+      const options = data.map((item) => ({
         value: item.id,
         label: item.name,
       }));
@@ -135,7 +143,6 @@ const Kissform = () => {
             <div className="border rounded-4 p-4">
               <h5 className="mb-4">Basic Details</h5>
               <div className="row">
-                
                 <div className="col-sm">
                   <div className="mb-3">
                     <label for="dobfloatingInput">Date of Purchase</label>
@@ -153,22 +160,13 @@ const Kissform = () => {
                 <div className="col-sm">
                   <div className="mb-3">
                     <label for="itemsfloatingInput">Items</label>
-                    <Select
-                      options={options}
-                      onInputChange={(inputValue) =>
-                        inputValue.trim().length > 0 &&
-                        loadOptions(inputValue, (options) => options)
-                      }
-                      placeholder="Search..."
-                      isSearchable
-                      isLoading={options.length === 0}
-                      loadingMessage={() => "Loading..."}
-                      noOptionsMessage={() => "No options found"}
-                      menuPortalTarget={document.body}
-                      menuPosition={"fixed"}
-                      menuPlacement={"bottom"}
-                      menuShouldBlockScroll
-                    />
+                    <select>
+                      {items.map((item) => (
+                        <option key={item.id} value={item.id}>
+                          {item.name}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
               </div>
@@ -217,7 +215,7 @@ const Kissform = () => {
                       id="price"
                       onChange={handleChange}
                       name="price"
-                      value={kissinputs.price*kissinputs.quantity}
+                      value={kissinputs.price * kissinputs.quantity}
                     />
                     <span className="input-group-text">.00</span>
                   </div>

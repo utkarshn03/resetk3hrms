@@ -1,26 +1,25 @@
 import React from 'react'
-import { useState } from 'react'
 import '../App.css'
 import styled from 'styled-components'
 import Login from '../components/Login'
-import Registration from '../components/Registration'
-import { useEffect } from 'react'
+// import Registration from '../components/Registration'
+
 
 export default function Entry({setUser}) {
 
    
-    const [curr, setCurr]= useState("login");
+    // const [curr, setCurr]= useState("login");
     
-    function toggleItem(){
-        setCurr(prevState=>{
-            console.log("previous :", prevState)
-            return [prevState=="login"? "registration": "login"]
-        })
-    }
+    // function toggleItem(){
+    //     setCurr(prevState=>{
+    //         console.log("previous :", prevState)
+    //         return [prevState==="login"? "registration": "login"]
+    //     })
+    // }
 
-    useEffect(()=>{
+    // useEffect(()=>{
        
-      },[curr])
+    //   },[curr])
 
     
   return (
