@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import axios from "axios";
 import dayjs from "dayjs";
-const ipapi = require("../config.json");
+const { ipapi } = require("../config.json");
 
 const Department = () => {
 

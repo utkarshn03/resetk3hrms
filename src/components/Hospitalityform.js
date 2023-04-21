@@ -14,7 +14,7 @@ const Hospitalityform = () => {
   document.title="K3hrms · Hospitality";
 
   const [inputs, setInputs] = useState({
-    eid: "3478g",
+    eid: "",
     purpose: "",
     total_price: "",
     dop: "",
@@ -148,7 +148,7 @@ const [valuetime, setValuetime] = React.useState(
               <button type="button" className="btn btn-danger btn">
                 Cancel
               </button>
-              <button type="disabled" className="btn btn-success btn">
+              <button type="submit" className="btn btn-success btn">
                 Add
               </button>
             </div>

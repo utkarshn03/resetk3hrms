@@ -180,7 +180,7 @@ const Kimsform = () => {
                       <input
                         type="text"
                         className="form-control"
-                        aria-label="Amount (to the nearest dollar)"
+                        aria-label="Amount"
                         placeholder="Amount paid"
                         onChange={handleChange}
                         required

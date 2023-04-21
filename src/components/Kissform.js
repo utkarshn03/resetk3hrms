@@ -17,6 +17,7 @@ const Kissform = () => {
   const [items, setItems] = useState([]);
 
   console.log(dataTable);
+  console.log(items);
 
   const [kissinputs, setKissInputs] = useState({
     date: "",
@@ -85,10 +86,9 @@ const Kissform = () => {
   }, []);
 
   useEffect(() => {
-    fetch(apikissproducts)
-      .then((response) => response.json())
-      .then((data) => setItems(data))
-      .then((data) => console.log(data))
+    axios.get(apikissproducts)
+      .then((res) => setItems(res.data))
+
       .catch((error) => console.log(error));
   }, []);
 
@@ -160,10 +160,10 @@ const Kissform = () => {
                 <div className="col-sm">
                   <div className="mb-3">
                     <label for="itemsfloatingInput">Items</label>
-                    <select>
+                    <select className="form-select">
                       {items.map((item) => (
-                        <option key={item.id} value={item.id}>
-                          {item.name}
+                        <option key={item.pid} value={item.pid}>
+                          {item.product_name}
                         </option>
                       ))}
                     </select>

@@ -7,8 +7,7 @@ const ipapi = require("../config.json");
 
 const Department = () => {
 
-    const [show, setShow] = useState(false);
-
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   document.title = "K3hrms · Admin";

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
@@ -41,7 +40,7 @@ const Employeecreate = () => {
         lname: inputs.lname,
         department: inputs.department,
         email: inputs.email,
-        empid: inputs.empid,
+        username: inputs.empid,
         level: inputs.level,
         password: inputs.password,
         insta: inputs.insta,
@@ -57,7 +56,7 @@ const Employeecreate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then(() => history("/k3")); // Replace with your own logic for handling form submission
+    sendRequest().then(() => history("/k3/admin/employee")); // Replace with your own logic for handling form submission
   };
 
   useEffect(() => {
@@ -96,7 +95,7 @@ const Employeecreate = () => {
                   <div className="mb-3">
                     <label for="passfloatingInput">Password</label>
                     <input
-                      type="email"
+                      type="text"
                       className="form-control"
                       name="password"
                       id="passfloatingInput"
@@ -156,10 +155,12 @@ const Employeecreate = () => {
                   <div className="mb-3">
                     <label for="depfloatingInput">Department</label>
                     <select className="form-select" onChange={handleChange} name="department" value={inputs.department}>
-                      <option value="">-- Select Department --</option>
-                      <option value="Engineering">Engineering</option>
-                      <option value="ITI">ITI</option>
-                      <option value="Polytechnic">Polytechnic</option>
+                      {items.map((item) => (
+
+                        <option key={item.dep_id} value={item.dep_id}>
+                          {item.name}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>

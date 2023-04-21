@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route,Routes } from "react-router-dom";
 
 import "./App.css";
-import Kiit from "./pages/Kiit";
+import Kiittable from "./components/Kiittable";
 import Kissform from './components/Kissform';
 import Kiitform from "./components/Kiitform";
 import Kimsform from "./components/Kimsform";
@@ -19,13 +19,15 @@ import Alert from "./components/Alert";
 import Socialmedia from "./components/Socialmediatask";
 import Home from "./components/Home";
 
-//import Welcome from './components/Welcome';
+//admin components
 
 import Signup from "./admin/Employeecreate";
 import Departmentregister from "./admin/Department";
 import Departmenttable from "./admin/Departmentable";
 import EmployeeTable from "./admin/EmployeeTable";
 import Linechart from "./admin/Linechart";
+import Kissproductsform from "./admin/Kissproductsform";
+import Verification from "./components/Verification";
 
 function App() {
 
@@ -37,7 +39,7 @@ function App() {
        <Route path='/login' element={<Entry/>}/>
        <Route path="/k3" element={<Header title="header"/>}/>
        <Route path="/k3/home" element={<div><Header/><WelcomePage/></div>}/>
-       <Route path="/k3/kiit" element={<div><Header/><Kiit/></div>}/>
+       <Route path="/k3/kiit" element={<div><Header/><Kiittable/></div>}/>
        <Route path="/k3/kiit/form" element={<div><Header/><Alert alert={alert}/><Kiitform/></div>}/>
        <Route path="/k3/kims" element={<div><Header/><Kimstable/></div>}/>
        <Route path="/k3/kims/form" element={<div><Header/><Alert alert={alert}/><Kimsform/></div>}/>
@@ -57,6 +59,11 @@ function App() {
        <Route path="/k3/admin/department" element={<><Departmenttable/></>}/>
        <Route path="/k3/admin/employee" element={<><EmployeeTable/></>}/>
        <Route path="/k3/admin/charts" element={<><Linechart/></>}/>
+       <Route path="/k3/admin/kiss" element={<><Kissproductsform/></>}/>
+
+       {/* Testing pages */}
+
+       <Route path="/verification" element={<><Verification/></>}/>
 
        
        </Routes>

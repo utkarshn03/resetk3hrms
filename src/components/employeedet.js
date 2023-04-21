@@ -1,57 +1,10 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import axios from "axios";
 
-// let getimage = document.getElementbyId('test');
-//     getimage.src= "data"
+const { ipapi } = require("../config.json");
 
-//     fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/435828')
-//     .then((response) => response.json())
-//     .then(data => getimage.src = data.primaryImage);
-
-const Employeedet = () => {
-  const employee = "";
-  const id = "123344";
-
-  function createCookie(fieldname, fieldvalue, expiry) {
-    var date = new Date();
-    date.setTime(date.getTime()+ (expiry*24*60*60*1000));
-    var expires = "expires=" + date.toGMTString();
-    document.cookie = fieldname + "=" + fieldvalue
-                    + ";" + expires + ";path=/";
-}
-
-  function readCookie(cname) {
-    var name = cname + "=";
-    var decoded_cookie = 
-        decodeURIComponent(document.cookie);
-    var carr = decoded_cookie.split(';');
-    for(var i=0; i<carr.length;i++){
-        var c = carr[i];
-        while(c.charAt(0)==' '){
-            c=c.substring(1);
-        }
-        if(c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-
-function runApp() {
-    var user = readCookie("username");
-    if(!user){
-        user=prompt("Enter your name: ", "");
-        if(user!= "" && user!=null){
-            createCookie("username", user, 30);
-        }
-        
-    }else{
-        
-
-        alert("Hello "+user);
-    }
-}
+const Employeedet = (props) => {
 
   return (
     <>
@@ -92,7 +45,7 @@ function runApp() {
                 </div>
                 <br/>
                 <div className="ml-4">
-                <a className="text-muted" href={employee.instagram}>
+                <a className="text-muted" href="">
                   <svg width="28px" height="28px" viewBox="0 0 20 20">
                     <rect x="0" fill="none" width="20" height="20" />
 
@@ -104,7 +57,7 @@ function runApp() {
                 </div>
                 <br/>
                 <div className="ml-4">
-                <a className="text-muted" href={employee.facebook}>
+                <a className="text-muted" href="">
                   <svg
                     fill="#000000"
                     height="28px"
@@ -119,7 +72,7 @@ function runApp() {
                 </div>
                 <br/>
                 <div className="ml-4">
-                <a className="text-muted" href={employee.youtube}>
+                <a className="text-muted" href="">
                   <svg
                     fill="#000000"
                     height="28px"
@@ -142,16 +95,16 @@ function runApp() {
                 <div className="mb-0">
                   <div>
                   <h6 className="text-muted ">Employee Id: </h6>
-                  <small className="mb-2">{id}</small>
+                  {/* <small className="mb-2">{props.data.username}</small> */}
                   </div>
                   <div className="text-muted">Name: </div>
-                  <p className="mb-2">{id}</p>
+                  {/* <p className="mb-2">{props.data.fname} {props.data.lname}</p> */}
                   <div className="text-muted">Department: </div>
-                  <p className="mb-2">{id}</p>
+                  {/* <p className="mb-2">{props.data.department}</p> */}
                   <div className="text-muted">Email: </div>
-                  <p className="mb-2">{id}</p>
+                  {/* <p className="mb-2">{props.data.email}</p> */}
                   <div className="text-muted">Mobile: </div>
-                  <p className="mb-2">{id}</p>
+                  {/* <p className="mb-2">{props.data.mob}</p> */}
                 </div>
                 
               </div>

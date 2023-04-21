@@ -80,7 +80,7 @@ const Kiittable = () => {
     axios.get(apikiittable)
       .then((res) => setDataTable(res.data))
       .catch((err) => console.log(err));
-  },[test]);
+  },[]);
 
   //table columns
 

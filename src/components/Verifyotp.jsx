@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const { ipapi } = require("../config.json");
 
-export default function Verification(props) {
+export default function Verifyotp(props) {
 
   const apiauthotp = ipapi + "/api/auth/generate_otp";
 
@@ -15,6 +15,7 @@ export default function Verification(props) {
 
   const [inputs, setInputs] = useState({
     username: "",
+    otp: ""
   });
 
   const handleChange = (e) => {
@@ -24,16 +25,25 @@ export default function Verification(props) {
     }));
   };
 
+  // function createCookie(fieldname, fieldvalue, expiry) {
+
+
+
   const sendRequest = async () => {
 
     const res = await axios
       .post(apiauthotp, {
         username: props.data.username,
+        otp: inputs.otp
       })
       .catch((err) => {
 
         console.log(err);
       });
+      if(res.status === 200) {
+        console.log("Logged In");
+        flag =1;
+      }
 
       const data = await res.status;
       console.log(data);
@@ -45,7 +55,7 @@ export default function Verification(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then(() => navigate("/k3/home"));
+    sendRequest().then(() => {if (flag===1) navigate("/k3/home")});
     // sendRequest()
   };
 
@@ -56,18 +66,27 @@ export default function Verification(props) {
       <Heading>{props.data.username}</Heading>
       <FormContent onSubmit={handleSubmit}>
         {/* <h1 className="text-success mb-0">Verification of Account</h1> */}
-        <small>we think it's your first time logging in</small>
+        <small>Check your mail we have sended you a mail</small>
         
         <input
-          type="email"
-          placeholder="email"
+          type="text"
+          placeholder="employeeid"
           name="email"
           id="email"
           disabled
           readOnly
-          value={props.data.email}
+          value={props.data.username}
           onChange={handleChange}
         />
+        <input
+          type="text"
+          placeholder="email"
+          name="otp"
+          id="otp"
+          value={inputs.otp}
+          onChange={handleChange}
+        />
+        
         <button type='submit' className="submit-btn" >
           Authenticate
         </button>

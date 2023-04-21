@@ -6,14 +6,18 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Modal, Button } from "react-bootstrap";
 const { ipapi } = require("../config.json");
 
-const Departmentable = (props) => {
+const Employeetable = (props) => {
   
-  const [show, setShow] = useState(false);
+  const [showregister, setShowregister] = useState(false);
+  const [showedit, setShowedit] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShowregister(false);
+  const handleShow = () => setShowregister(true);
 
-  document.title="K3hrms · Admin";
+  const handleCloseedit = () => setShowedit(false);
+  const handleShowedit = () => setShowedit(true);
+
+  document.title="K3hrms · Employee";
 
   const [dataTable, setDataTable] = useState([]);
 
@@ -61,10 +65,17 @@ const Departmentable = (props) => {
           onClick={() => handleView(item._id)}
         >
           View
-        </button>
+      </button>
+      <button
+          className="btn btn-secondary"
+          onClick={() => {  handleEdit(item._id); handleShowedit()}}
+        >
+          Edit
+      </button>
         <button
           className="btn btn-danger"
-          onClick={() => handleDelete(item._id)}
+          onClick={() => {handleDelete(item._id)}}
+          // onClick={handleShow} 
         >
           Delete
         </button>
@@ -74,7 +85,8 @@ const Departmentable = (props) => {
 
   //api
   const apiemployeetable = ipapi + "/api/user/getall";
-  const apidepartmentdelete = ipapi + "/api/department/delete";  
+  const apidepartmentdelete = ipapi + "/api/department/delete"; 
+  const apiempedit = ipapi + "/api/department/edit"; 
 
   useEffect(() => {
     axios
@@ -86,8 +98,9 @@ const Departmentable = (props) => {
   //table columns
 
   const column = [
-    { heading: "Id", value: "fname", value: "lname" },
-    { heading: "Name", value: "dep_id" },
+    { heading: "Id", value: "username" },
+    { heading: "Fisrt Name", value: "fname" },
+    { heading: "Last Name", value: "lname" },
     { heading: "Level", value: "level"},
     { heading: "Department", value: "department"}
   ];
@@ -95,6 +108,15 @@ const Departmentable = (props) => {
   const handleDelete = (id) => {
     axios
       .post(apidepartmentdelete, { id })
+      .then((res) => {
+        setDataTable(dataTable.filter((item) => item._id !== id));
+      })
+      .catch((err) => console.log("good"));
+  };
+
+  const handleEdit = (id) => {
+    axios
+      .post(apiempedit, { id })
       .then((res) => {
         setDataTable(dataTable.filter((item) => item._id !== id));
       })
@@ -131,7 +153,7 @@ const Departmentable = (props) => {
             </div>
             <div></div>
           </div>
-          <Modal show={show} onHide={handleClose} size="lg"
+          <Modal show={showregister} onHide={handleClose} size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered>
           <Modal.Header closeButton>
@@ -142,14 +164,19 @@ const Departmentable = (props) => {
         <Modal.Body>
           <Employeeform/>
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer> */}
+      </Modal>
+
+      <Modal show={showedit} onHide={handleCloseedit} size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+          <Modal.Header closeButton>
+          <Modal.Title>
+          <h4 className="text-success mb-0">Employee Registration</h4>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Employeeform/>
+        </Modal.Body>
       </Modal>
            
           <div className="row">
@@ -180,4 +207,4 @@ const Departmentable = (props) => {
   );
 };
 
-export default Departmentable;
+export default Employeetable;

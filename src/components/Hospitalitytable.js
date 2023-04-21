@@ -37,7 +37,9 @@ const Hospitalitytable = (props) => {
 
   const dateString = "2015-03-10T10:50:30.389Z";
   const dateObject = new Date(dateString);
-  const month = dateObject.getMonth();
+  var month = dateObject.getMonth();
+  console.log(month+1);
+  
 
   const complicatedDateString = "2015-03-10T10:50:30.389Z";
   const dateObjectfy = new Date(complicatedDateString);
@@ -74,16 +76,24 @@ const Hospitalitytable = (props) => {
     <tr>
 
       {column.map((columnItem, index) => {
+        var abcd;
         if (columnItem.value === "dop") {
           //console.log(columnItem.heading);
           console.log(item[columnItem.value]);
           const dateofpr = item[columnItem.value];
           const dateObjectfi = new Date(dateofpr);
+          var monthi = dateObjectfi.getMonth();
+          var yeari = dateObjectfi.getFullYear();
+          var dayii = dateObjectfi.getDate();
+          console.log(monthi);
+          console.log(yeari);
+          console.log(dayii);
 
-          item[columnItem.value]=dateObjectfi.toLocaleDateString();
-          console.log(item[columnItem.value]);
+          abcd= new Date(yeari+"/"+(monthi+1)+"/"+dayii);
+          abcd= abcd.toLocaleDateString();
+
         }
-        return <td>{item[columnItem.value]}</td>;
+        return <td>{columnItem.value === "dop"? abcd : item[columnItem.value]}</td>;
       })}
       <td>
         <button className="btn btn-secondary">View</button>
@@ -144,7 +154,7 @@ const Hospitalitytable = (props) => {
             </div>
             <div className="col-sm-auto">
               <button onClick={handleShow} className="btn btn-success mx-2">
-                Add Candidate Details
+                Add Benefit Details
               </button>
             </div>
             <div></div>
@@ -154,23 +164,16 @@ const Hospitalitytable = (props) => {
       centered>
           <Modal.Header closeButton>
           <Modal.Title>
-          <h4 className="text-success mb-0">Candidate Registration</h4>
+          <h4 className="text-success mb-0">New Benefit Application</h4>
         <p className="mb-3">
-          <small className="text-muted">Add Candidate</small>
+          <small className="text-muted">Add Benefit Details</small>
         </p>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Hospitalityform/>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        
       </Modal>
            
           <div className="row">
@@ -189,8 +192,17 @@ const Hospitalitytable = (props) => {
               >
                 <option value={monthIndex}>{monthName}</option>
                 <option value="0">January</option>
-                <option value="1">Hotel</option>
-                <option value="2">Party Booking</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
               </select>
             </div>
 
